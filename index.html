@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTRAGON | Ekosistem Digital Server & Domain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* ==========================================================================
+           1. RESET & BASE STYLES
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #0f1115;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        button:focus, a:focus, input:focus, select:focus {
+            outline: none;
+        }
+
+        button {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        /* ==========================================================================
+           2. NAVIGATION SYSTEM & SIDE MENU
+           ========================================================================== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #161920;
+            border-bottom: 1px solid #2a2e38;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: #ff3e3e;
+        }
+
+        .btn-hamburger {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            padding: 5px 10px;
+        }
+
+        .btn-hamburger:hover {
+            color: #ff3e3e;
+        }
+
+        /* Side Menu Styles */
+        .side-menu {
+            height: 100%; width: 260px; position: fixed; z-index: 1000; top: 0; right: -260px;
+            background-color: #161920; overflow-x: hidden; transition: 0.3s; padding-top: 60px;
+            border-left: 1px solid #2a2e38; box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        }
+        .side-menu a {
+            padding: 15px 30px; text-decoration: none; font-size: 1.1rem; color: #a0a5b1; 
+            display: flex; align-items: center; gap: 15px; transition: 0.2s; border-bottom: 1px solid #2a2e38;
+        }
+        .side-menu a:hover { color: #ff3e3e; background-color: rgba(255, 62, 62, 0.05); }
+        .side-menu .close-btn {
+            position: absolute; top: 15px; right: 25px; font-size: 30px; background: none; border: none; color: #fff; cursor: pointer;
+        }
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); z-index: 999; display: none; backdrop-filter: blur(3px);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+        }
+
+        /* ==========================================================================
+           3. HERO GATEWAY
+           ========================================================================== */
+        #page-gateway {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.95)), url('https://images.unsplash.com/photo-1607513746994-51f730a44832?q=80&w=1920&auto=format&fit=crop') center/cover;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero-content h1 span {
+            color: #ff3e3e;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #b0b5c1;
+            margin-bottom: 15px;
+        }
+
+        .auto-web-badge {
+            display: inline-block; background: rgba(16, 185, 129, 0.1); color: #10b981; 
+            padding: 10px 20px; border-radius: 30px; border: 1px solid rgba(16, 185, 129, 0.3); 
+            margin-bottom: 35px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-gateway {
+            background-color: #ff3e3e;
+            color: #fff;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(255, 62, 62, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1rem; }
+            .auto-web-badge { font-size: 0.85rem; }
+        }
+
+        /* ==========================================================================
+           4. PRODUCT SELECTION CATEGORY
+           ========================================================================== */
+        #page-product-selection {
+            padding: 60px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #page-product-selection { padding: 40px 20px; }
+            .selection-top-bar h2 { font-size: 1.5rem !important; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+            .btn-back-shifted { margin-left: 0; }
+        }
+
+        .selection-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-back-shifted {
+            margin-left: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #161920;
+            border: 2px solid #2a2e38;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: #ff3e3e;
+            background-color: #1c202b;
+            transform: translateY(-5px);
+        }
+
+        .icon-wrapper-private {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .icon-wrapper-private .main-server-icon {
+            font-size: 3rem;
+            color: #ff3e3e;
+        }
+
+        .icon-wrapper-private .shield-badge-icon {
+            position: absolute;
+            bottom: -5px;
+            right: -10px;
+            font-size: 1.5rem;
+            color: #4caf50;
+            background-color: #161920;
+            border-radius: 50%;
+            padding: 2px;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+        }
+
+        .product-card > i {
+            font-size: 3rem;
+            color: #ff3e3e;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .product-card p {
+            font-size: 0.9rem;
+            color: #a0a5b1;
+            margin-bottom: 20px;
+        }
+
+        .btn-select-prod {
+            background-color: #2a2e38;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .product-card:hover .btn-select-prod {
+            background-color: #ff3e3e;
+        }
+
+        /* ==========================================================================
+           5. PRODUCT PACKAGES DETAIL VIEW
+           ========================================================================== */
+        #page-product-detail {
+            padding: 40px 50px;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            #page-product-detail { padding: 30px 20px; }
+            .detail-header h2 { font-size: 1.5rem !important; }
+            .sub-tab-btn { padding: 10px 15px; font-size: 0.85rem; }
+            .duration-btn { padding: 6px 12px; font-size: 0.75rem; }
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #2a2e38;
+            padding-bottom: 20px;
+        }
+
+        .btn-back {
+            background-color: #161920;
+            color: #e0e0e0;
+            border: 1px solid #2a2e38;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back:hover {
+            border-color: #ff3e3e;
+            color: #ff3e3e;
+        }
+
+        .sub-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab-btn {
+            background-color: #161920;
+            color: #a0a5b1;
+            border: 2px solid #2a2e38;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 10px 20px;
+        }
+
+        .sub-tab-btn.active {
+            background-color: #ff3e3e;
+            color: #fff;
+            border-color: #ff3e3e;
+        }
+
+        .duration-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .duration-btn {
+            background-color: #0f1115;
+            color: #b0b5c1;
+            border: 1px solid #2a2e38;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 6px 16px;
+        }
+
+        .duration-btn.active {
+            background-color: #ff3e3e;
+            color: #fff;
+            border-color: #ff3e3e;
+        }
+
+        .hardware-badge {
+            text-align: center;
+            background-color: #161920;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #ff3e3e;
+            font-weight: bold;
+            display: table;
+            margin: 0 auto 35px auto;
+            border: 1px solid rgba(255, 62, 62, 0.2);
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            background-color: #161920;
+            border: 1px solid #2a2e38;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border 0.3s ease;
+        }
+
+        .item-card:hover {
+            border-color: #ff3e3e;
+        }
+
+        .item-card h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .item-card .price-tag {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff3e3e;
+            margin-bottom: 15px;
+        }
+
+        .item-card .price-tag span {
+            font-size: 0.85rem;
+            color: #a0a5b1;
+        }
+
+        .item-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .item-card ul li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item-card ul li i {
+            color: #ff3e3e;
+            width: 16px;
+            text-align: center;
+        }
+
+        .item-specs-highlight {
+            background-color: rgba(16, 185, 129, 0.05);
+            border: 1px dashed rgba(16, 185, 129, 0.4);
+            border-radius: 6px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #10b981;
+        }
+        .item-specs-highlight div { margin-bottom: 5px; }
+        .item-specs-highlight div:last-child { margin-bottom: 0; }
+        .item-specs-highlight i { margin-right: 5px; }
+
+        .btn-order {
+            width: 100%;
+            padding: 11px;
+            background-color: #2a2e38;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .item-card:hover .btn-order {
+            background-color: #ff3e3e;
+        }
+
+        .group-separator {
+            grid-column: 1 / -1;
+            margin: 20px 0 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #2a2e38;
+            color: #fff;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .group-separator i {
+            color: #ff3e3e;
+        }
+
+        /* ==========================================================================
+           DOMAIN PREMIUM DESIGN
+           ========================================================================== */
+        .domain-premium-wrapper { grid-column: 1 / -1; padding: 20px 0; width: 100%; }
+        .domain-hero-section { text-align: center; margin-bottom: 40px; }
+        .domain-hero-section h3 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; }
+        .domain-hero-section h3 span { color: #ff3e3e; }
+        .domain-hero-section p { color: #a0a5b1; font-size: 1.1rem; margin-bottom: 30px; }
+        .domain-search-box {
+            display: flex; max-width: 800px; margin: 0 auto; background: #161920;
+            border: 2px solid #2a2e38; border-radius: 50px; padding: 8px; transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .domain-search-box:focus-within { border-color: #ff3e3e; box-shadow: 0 10px 30px rgba(255, 62, 62, 0.15); }
+        .domain-search-box input {
+            flex: 1; background: transparent; border: none; padding: 15px 25px; color: #fff;
+            font-size: 1.2rem; min-width: 0; user-select: text;
+        }
+        .domain-search-box button {
+            background: #ff3e3e; color: #fff; border: none; padding: 0 40px; border-radius: 40px;
+            font-weight: bold; font-size: 1.1rem; text-transform: uppercase; white-space: nowrap; 
+        }
+        .domain-search-box button:hover { background: #e63535; }
+        
+        .tld-showcase { display: flex; justify-content: center; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
+        .tld-card {
+            background: #161920; border: 1px solid #2a2e38; padding: 15px 20px;
+            border-radius: 12px; text-align: center; position: relative; min-width: 120px; transition: transform 0.2s;
+        }
+        .tld-card:hover { transform: translateY(-5px); border-color: #ff3e3e; }
+        .tld-card .badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #10b981;
+            color: #fff; font-size: 0.7rem; font-weight: bold; padding: 4px 10px; border-radius: 20px;
+            text-transform: uppercase; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3); white-space: nowrap;
+        }
+        .tld-card .badge.merah { background: #ff3e3e; box-shadow: 0 4px 10px rgba(255, 62, 62, 0.3); }
+        .tld-card h4 { font-size: 1.3rem; color: #fff; margin-bottom: 5px; margin-top: 10px; }
+        .tld-card .price-strike { font-size: 0.8rem; color: #707580; text-decoration: line-through; margin-bottom: 2px; }
+        .tld-card .price-promo { font-size: 1rem; color: #10b981; font-weight: bold; }
+
+        .domain-results-container {
+            max-width: 800px; margin: 0 auto 40px auto; display: none; flex-direction: column; gap: 15px;
+        }
+        .domain-result-item {
+            background: #161920; border: 1px solid #2a2e38; border-radius: 10px; padding: 20px 25px;
+            display: flex; justify-content: space-between; align-items: center; transition: all 0.2s ease; flex-wrap: wrap; gap: 15px;
+        }
+        .domain-result-item:hover { border-color: #10b981; background: #1c222b; }
+        .domain-result-item.unavailable { background: rgba(239, 68, 68, 0.05); border-color: rgba(239, 68, 68, 0.4); }
+        .domain-result-item.unavailable:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.1); }
+        .domain-info .d-name { font-size: 1.3rem; color: #fff; font-weight: bold; }
+        .domain-info .d-name.strike { color: #ef4444; text-decoration: line-through; }
+        .domain-info .d-name span { color: #ff3e3e; }
+        .domain-result-item.unavailable .d-name span { color: #ef4444; }
+        .domain-info .d-status { font-size: 0.85rem; margin-top: 5px; display: flex; align-items: center; gap: 5px; font-weight: 600; }
+        .domain-info .d-status.available { color: #10b981; }
+        .domain-info .d-status.taken { color: #ef4444; }
+        .domain-action { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+        .domain-action .d-price-strike { font-size: 0.8rem; color: #707580; text-decoration: line-through; }
+        .domain-action .d-price { font-size: 1.2rem; color: #fff; font-weight: bold; }
+        .btn-add-cart { background: #10b981; color: #fff; border: none; padding: 10px 25px; border-radius: 6px; font-weight: bold; }
+        .btn-add-cart:hover { background: #059669; }
+        .btn-taken { background: #2a2e38; color: #ef4444; border: 1px solid #ef4444; padding: 10px 25px; border-radius: 6px; font-weight: bold; cursor: not-allowed; display: flex; align-items: center; gap: 8px; }
+
+        .loader-spinner { display: none; text-align: center; margin: 30px 0; color: #ff3e3e; font-size: 2rem; }
+        .loader-text { color: #a0a5b1; font-size: 0.9rem; margin-top: 10px; }
+
+        @media (max-width: 768px) {
+            .domain-hero-section h3 { font-size: 1.8rem; }
+            .domain-search-box { flex-direction: column; border-radius: 20px; padding: 12px; gap: 10px; }
+            .domain-search-box input { padding: 12px; text-align: center; }
+            .domain-search-box button { padding: 15px; border-radius: 12px; width: 100%; }
+            .domain-result-item { flex-direction: column; align-items: flex-start; text-align: left; }
+            .domain-action { text-align: left; align-items: flex-start; width: 100%; margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; }
+            .btn-add-cart, .btn-taken { width: 100%; text-align: center; justify-content: center; }
+        }
+
+        /* ==========================================================================
+           6. MODERN POP-UP MODAL SYSTEM
+           ========================================================================== */
+        .modal-mask {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(6px); z-index: 500;
+            display: none; align-items: center; justify-content: center; padding: 15px;
+        }
+
+        .modal-window {
+            background-color: #161920; border: 2px solid #2a2e38; border-radius: 14px;
+            width: 100%; max-width: 480px; padding: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            position: relative; max-height: 90vh; overflow-y: auto;
+        }
+
+        @media (max-width: 480px) {
+            .modal-window { padding: 20px 15px; max-height: 85vh; }
+            .custom-select-grid { grid-template-columns: 1fr !important; max-height: 250px !important; }
+            .modal-action-buttons { flex-direction: column-reverse; }
+            .btn-modal-secondary, .btn-modal-primary { width: 100%; }
+        }
+
+        .modal-window h3 { color: #fff; margin-bottom: 20px; font-size: 1.35rem; border-bottom: 1px solid #2a2e38; padding-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .modal-window h3 i { color: #ff3e3e; }
+        .modal-label { font-size: 0.85rem; color: #a0a5b1; margin-bottom: 8px; font-weight: 600; display: block; }
+        .form-input-item { width: 100%; background-color: #0f1115; border: 1px solid #2a2e38; border-radius: 8px; padding: 12px; color: #fff; font-size: 0.95rem; margin-bottom: 15px; user-select: text; }
+
+        .custom-select-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; max-height: 180px; overflow-y: auto; padding-right: 4px; }
+        .custom-select-grid::-webkit-scrollbar, .modal-window::-webkit-scrollbar { width: 6px; }
+        .custom-select-grid::-webkit-scrollbar-thumb, .modal-window::-webkit-scrollbar-thumb { background-color: #3e4454; border-radius: 10px; }
+
+        .selector-card { background-color: #0f1115; border: 1px solid #2a2e38; border-radius: 8px; padding: 12px; text-align: center; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+        .selector-card i { font-size: 1.2rem; color: #707580; }
+        .selector-card span { font-size: 0.85rem; font-weight: bold; color: #b0b5c1; }
+        .selector-card.active { border-color: #ff3e3e; background-color: rgba(255, 62, 62, 0.08); }
+        .selector-card.active i { color: #ff3e3e; }
+        .selector-card.active span { color: #fff; }
+
+        .addon-preconfigured-box { background-color: rgba(255, 62, 62, 0.04); border: 1px dashed rgba(255, 62, 62, 0.3); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .addon-info h5 { color: #fff; font-size: 0.9rem; }
+        .addon-info p { font-size: 0.75rem; color: #a0a5b1; }
+        .toggle-container input { accent-color: #ff3e3e; width: 18px; height: 18px; cursor: pointer; }
+
+        .promo-container { display: flex; gap: 8px; margin-top: 15px; }
+        .promo-container input { flex: 1; background-color: #0f1115; border: 1px solid #2a2e38; border-radius: 6px; padding: 10px 12px; color: #fff; font-size: 0.9rem; user-select: text; }
+        .btn-promo-apply { background-color: #2a2e38; color: #fff; border: 1px solid #3e4454; padding: 0 15px; border-radius: 6px; font-weight: bold; font-size: 0.85rem; }
+        .btn-promo-apply:hover { background-color: #ff3e3e; border-color: #ff3e3e; }
+
+        .payment-methods-headline { font-size: 0.85rem; color: #a0a5b1; margin: 20px 0 8px 0; font-weight: bold; }
+        .qris-method-card { background-color: #0f1115; border: 1px solid #2a2e38; padding: 14px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s; }
+        .qris-method-card:hover { border-color: #ff3e3e; }
+        .qris-method-card.selected { border-color: #ff3e3e; background-color: rgba(255, 62, 62, 0.05); }
+        .qris-left-side { display: flex; align-items: center; gap: 12px; }
+        .qris-custom-logo-badge { background: linear-gradient(135deg, #002d62, #0056b3); padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; font-style: italic; font-weight: 900; font-size: 0.85rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.2); }
+        .qris-custom-logo-badge .q-text { color: #ffffff; }
+        .qris-custom-logo-badge .r-text { color: #ffcc00; }
+        .qris-custom-logo-badge .is-text { color: #ffffff; }
+        .qris-left-side span.qris-txt-lbl { font-size: 0.95rem; font-weight: bold; color: #fff; }
+        .qris-radio-circle { width: 16px; height: 16px; border: 2px solid #707580; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .qris-method-card.selected .qris-radio-circle { border-color: #ff3e3e; }
+        .qris-method-card.selected .qris-radio-circle::after { content: ""; width: 8px; height: 8px; background-color: #ff3e3e; border-radius: 50%; }
+
+        .modal-action-buttons { display: flex; gap: 10px; margin-top: 25px; }
+        .btn-modal-primary { flex: 1; background-color: #ff3e3e; color: #fff; border: none; padding: 12px; font-weight: bold; border-radius: 6px; text-align: center; }
+        .btn-modal-primary:disabled { background-color: #2a2e38; color: #707580; cursor: not-allowed; transform: none; }
+        .btn-modal-secondary { background-color: #2a2e38; color: #a0a5b1; border: none; padding: 12px 20px; font-weight: bold; border-radius: 6px; text-align: center; }
+
+        /* ==========================================================================
+           7. QRIS GATEWAY MAIN BOX
+           ========================================================================== */
+        .qris-payment-box { text-align: center; }
+        .qris-image-wrapper { background-color: #1a1d26; border: 2px dashed #2a2e38; padding: 15px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; margin: 15px 0; width: 240px; height: 240px; position: relative; }
+        .qris-image-wrapper img { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .qris-image-wrapper img[src^="http"] { display: block; }
+        .qris-empty-placeholder { color: #707580; font-size: 0.85rem; padding: 10px; }
+        .timer-countdown { background-color: rgba(255, 152, 0, 0.1); border: 1px solid #ff9800; color: #ff9800; padding: 8px; border-radius: 6px; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .btn-check-status { width: 100%; background-color: #4caf50; color: #fff; border: none; padding: 14px; font-weight: bold; border-radius: 6px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); }
+        .btn-check-status:hover { background-color: #43a047; }
+
+        footer { text-align: center; padding: 40px; background-color: #161920; color: #a0a5b1; border-top: 1px solid #2a2e38; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <div id="menu-overlay" class="menu-overlay" onclick="toggleMenu()"></div>
+    <div id="side-menu" class="side-menu">
+        <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        <a href="#" onclick="resetToHomeGateway(); toggleMenu();"><i class="fas fa-home" style="width:25px;"></i> Home</a>
+        <a href="#" onclick="showProductSelectionPage(); toggleMenu();"><i class="fas fa-box" style="width:25px;"></i> Produk</a>
+        <a href="#"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
+        <a href="#"><i class="fas fa-robot" style="width:25px;"></i> Panel Bot</a>
+        <a href="#"><i class="fas fa-headset" style="width:25px;"></i> Hubungi Support</a>
+    </div>
+
+    <nav>
+        <div class="logo" onclick="resetToHomeGateway()">ULTRAGON <span>HOST</span></div>
+        <button class="btn-hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main id="page-gateway">
+        <div class="hero-content">
+            <h1>Platform Ekosistem <span>ULTRAGON</span></h1>
+            <p>Penyedia infrastruktur hosting berkecepatan tinggi, integrasi bot otomatis, VPS andal, dan pendaftaran domain instan.</p>
+            
+            <div class="auto-web-badge">
+                <i class="fas fa-bolt"></i> Website & Layanan Otomatis Online 24 Jam Nonstop
+            </div>
+            <br>
+
+            <button class="btn-gateway" onclick="showProductSelectionPage()">PRODUK</button>
+        </div>
+    </main>
+
+    <section id="page-product-selection">
+        <div class="selection-top-bar">
+            <h2 style="color: #fff; font-size: 2rem;">Pilih Kategori Produk 
+                <button class="btn-back btn-back-shifted" style="display:inline-flex;" onclick="resetToHomeGateway()"><i class="fas fa-home"></i> Beranda Utama</button>
+            </h2>
+        </div>
+        
+        <div class="product-grid">
+            <div class="product-card" onclick="openProductDetail('mc')">
+                <i class="fas fa-server"></i>
+                <h3>Minecraft Server</h3>
+                <p>Node AMD Genoa & Ryzen Flagship.</p>
+                <button class="btn-select-prod">Buka</button>
+            </div>
+            <div class="product-card" onclick="openProductDetail('private')">
+                <div class="icon-wrapper-private">
+                    <i class="fas fa-server main-server-icon"></i>
+                    <i class="fas fa-shield-alt shield-badge-icon"></i>
+                </div>
+                <h3>Private Server Minecraft</h3>
+                <p>1 Dedicated VPS khusus tanpa gangguan luar.</p>
+                <button class="btn-select-prod">Buka</button>
+            </div>
+            <div class="product-card" onclick="openProductDetail('vps')">
+                <i class="fas fa-cloud"></i>
+                <h3>VPS Server</h3>
+                <p>Legal VPS, OVH Node, & Digital Ocean Cloud.</p>
+                <button class="btn-select-prod">Buka</button>
+            </div>
+            <div class="product-card" onclick="openProductDetail('domain')">
+                <i class="fas fa-globe"></i>
+                <h3>Domain Checker</h3>
+                <p>Cari & daftarkan domain murah milikmu.</p>
+                <button class="btn-select-prod">Buka</button>
+            </div>
+            <div class="product-card" onclick="openProductDetail('bot')">
+                <i class="fas fa-robot"></i>
+                <h3>PANEL BOT</h3>
+                <p>Hosting panel bot aktif 24 jam nonstop.</p>
+                <button class="btn-select-prod">Buka</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-product-detail">
+        <div class="detail-header">
+            <h2 id="detail-title" style="color: #fff; font-size: 2rem;">Nama Produk</h2>
+            <button class="btn-back" onclick="backToProductSelection()"><i class="fas fa-arrow-left"></i> Kembali</button>
+        </div>
+
+        <div id="sub-tabs-container" class="sub-tabs"></div>
+
+        <div id="duration-tabs-container" class="duration-tabs">
+            <button id="dt-weekly" class="duration-btn" onclick="switchDuration('weekly')">Mingguan</button>
+            <button id="dt-monthly" class="duration-btn active" onclick="switchDuration('monthly')">Bulanan</button>
+            <button id="dt-yearly" class="duration-btn" onclick="switchDuration('yearly')">Tahunan</button>
+        </div>
+
+        <div id="hardware-badge" class="hardware-badge">Node CPU</div>
+        <div id="items-container" class="items-grid"></div>
+    </section>
+
+    <div id="modal-setup" class="modal-mask">
+        <div class="modal-window">
+            <h3><i class="fas fa-cogs"></i> Konfigurasi Server</h3>
+            <span class="modal-label">Pilih Versi Game Minecraft</span>
+            <div class="custom-select-grid" id="version-custom-grid"></div>
+
+            <span class="modal-label">Pilih Jenis Server Core Engine</span>
+            <div class="custom-select-grid" id="core-custom-grid">
+                <div class="selector-card active" id="core-card-PaperMC" onclick="selectCustomCoreOption('PaperMC')">
+                    <i class="fas fa-feather-alt"></i><span>PaperMC</span>
+                </div>
+                <div class="selector-card" id="core-card-Purpur" onclick="selectCustomCoreOption('Purpur')">
+                    <i class="fas fa-sliders-h"></i><span>Purpur</span>
+                </div>
+                <div class="selector-card" id="core-card-Forge" onclick="selectCustomCoreOption('Forge')">
+                    <i class="fas fa-tools"></i><span>Forge Mods</span>
+                </div>
+                <div class="selector-card" id="core-card-Bedrock" onclick="selectCustomCoreOption('Bedrock')">
+                    <i class="fas fa-cube"></i><span>Bedrock Edit.</span>
+                </div>
+            </div>
+
+            <div class="addon-preconfigured-box">
+                <div class="addon-info">
+                    <h5>Server Siap Pakai (+Rp35.000)</h5>
+                    <p>Setup plugin basic, folder map spawn, & setup group rank.</p>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="addon-ready-to-play" onchange="updateLiveTotalPrice()">
+                </div>
+            </div>
+
+            <div style="background-color:#0f1115; padding:12px; border-radius:6px; margin-bottom:15px; display:flex; justify-content:space-between;">
+                <span style="color:#a0a5b1; font-size:0.9rem;">Estimasi Biaya:</span>
+                <span id="setup-live-total" style="color:#ff3e3e; font-weight:bold; margin-left:auto;">Rp0</span>
+            </div>
+
+            <div class="modal-action-buttons">
+                <button class="btn-modal-secondary" onclick="closeModal('modal-setup')">Batal</button>
+                <button class="btn-modal-primary" onclick="proceedToInvoiceStage()">Save & Lanjut</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-contact-form" class="modal-mask">
+        <div class="modal-window">
+            <h3 id="contact-form-title"><i class="fas fa-id-card"></i> Lengkapi Data Pemesanan</h3>
+            <p style="font-size:0.8rem; color:#a0a5b1; margin-bottom:15px;">Silakan masukkan informasi kontak kamu di bawah ini:</p>
+            
+            <label class="modal-label">Nama Lengkap</label>
+            <input type="text" id="contact-form-name" class="form-input-item" placeholder="Contoh: Arya">
+
+            <label class="modal-label">Nomor WhatsApp Aktif</label>
+            <input type="number" id="contact-form-wa" class="form-input-item" placeholder="Contoh: 0812xxxxxxxx">
+
+            <label class="modal-label">Alamat Surat Gmail</label>
+            <input type="email" id="contact-form-email" class="form-input-item" placeholder="Contoh: arya@gmail.com">
+
+            <div class="modal-action-buttons">
+                <button class="btn-modal-secondary" onclick="closeModal('modal-contact-form')">Batal</button>
+                <button class="btn-modal-primary" onclick="submitContactFormIntoInvoice()">Simpan Data</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-invoice" class="modal-mask">
+        <div class="modal-window">
+            <h3><i class="fas fa-file-invoice-dollar"></i> Ringkasan Pembelian</h3>
+            
+            <div style="background-color:#0f1115; padding:15px; border-radius:8px; font-size:0.9rem; line-height:1.8;">
+                <div style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Produk:</span><span id="inv-name" style="color:#fff; font-weight:bold;">-</span></div>
+                <div id="inv-duration-row" style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Durasi:</span><span id="inv-duration" style="color:#fff;">-</span></div>
+                <div id="inv-details-row" style="display:none; flex-direction:column; border-top:1px dashed #2a2e38; margin-top:5px; padding-top:5px;">
+                    <div style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Engine Setup:</span><span id="inv-engine" style="color:#fff;">-</span></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; border-top:1px solid #2a2e38; margin-top:8px; padding-top:8px; font-size:1.1rem; font-weight:bold;">
+                    <span style="color:#fff;">Total Akhir:</span><span id="inv-total-price" style="color:#ff3e3e;">-</span>
+                </div>
+            </div>
+
+            <div class="promo-container">
+                <input type="text" id="promo-input" placeholder="Masukkan kode promo...">
+                <button class="btn-promo-apply" onclick="applyDiscountPromoCode()">Gunakan</button>
+            </div>
+            <div id="promo-message" style="font-size:0.8rem; margin-top:4px; display:none;"></div>
+
+            <div class="payment-methods-headline">Pilih Metode Pembayaran:</div>
+            <div class="qris-method-card" id="qris-selector-element" onclick="toggleSelectQrisMethod()">
+                <div class="qris-left-side">
+                    <div class="qris-custom-logo-badge">
+                        <span class="q-text">Q</span><span class="r-text">R</span><span class="is-text">IS</span>
+                    </div>
+                    <span class="qris-txt-lbl">QRIS Instan Otomatis</span>
+                </div>
+                <div class="qris-radio-circle"></div>
+            </div>
+
+            <div class="modal-action-buttons">
+                <button class="btn-modal-secondary" onclick="closeModal('modal-invoice')">Kembali</button>
+                <button class="btn-modal-primary" id="btn-submit-payment" disabled onclick="openQrisGatewayPayment()">Lanjutkan Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-qris-display" class="modal-mask">
+        <div class="modal-window">
+            <h3><i class="fas fa-qrcode"></i> Scan Pembayaran QRIS</h3>
+            
+            <div class="qris-payment-box">
+                <p style="font-size:0.85rem; color:#a0a5b1;">Silakan scan QRIS melalui DANA, OVO, GoPay, LinkAja, atau Mobile Banking.</p>
+                
+                <div class="qris-image-wrapper">
+                    <img id="qris-core-img" src="" alt="QRIS Core Billing">
+                    <div id="qris-no-link-msg" class="qris-empty-placeholder">
+                        <i class="fas fa-exclamation-triangle" style="color:#ff9800; font-size:1.5rem; margin-bottom:10px; display:block;"></i>
+                        FOTO QRIS BELUM DI-SETUP.<br><span style="font-size:0.75rem; color:#a0a5b1;">Tempel tautan fotomu di variabel `URL_FOTO_QRIS_KAMU`.</span>
+                    </div>
+                </div>
+
+                <div style="font-size:0.8rem; color:#a0a5b1; margin-bottom:5px;">Sisa Waktu Bayar (24 Jam Berjalan):</div>
+                <div id="qris-timer" class="timer-countdown">23:59:59</div>
+
+                <button class="btn-check-status" onclick="triggerCheckPaymentStatus()"><i class="fas fa-sync-alt"></i> CHECK STATUS PEMBAYARAN</button>
+            </div>
+
+            <div class="modal-action-buttons">
+                <button class="btn-modal-secondary" style="width:100%;" onclick="closeModal('modal-qris-display')">Tutup Transaksi</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-custom-alert" class="modal-mask" style="z-index: 9999;">
+        <div class="modal-window" style="max-width: 350px; text-align: center; padding: 30px 20px;">
+            <div id="custom-alert-icon-wrapper" style="margin-bottom: 15px;">
+                <i id="custom-alert-icon" class="fas fa-exclamation-circle" style="font-size: 3.5rem; color: #ff3e3e;"></i>
+            </div>
+            <h3 id="custom-alert-title" style="justify-content: center; border: none; padding: 0; font-size: 1.4rem; margin-bottom: 10px;">Pemberitahuan</h3>
+            <p id="custom-alert-message" style="color: #a0a5b1; margin-bottom: 25px; font-size: 0.95rem; line-height: 1.5;"></p>
+            <button class="btn-modal-primary" style="width: 100%;" onclick="closeModal('modal-custom-alert')">Mengerti</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ULTRAGON Hosting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Logika Menu Hamburger
+        function toggleMenu() {
+            const sideMenu = document.getElementById('side-menu');
+            const overlay = document.getElementById('menu-overlay');
+            if (sideMenu.style.right === '0px') {
+                sideMenu.style.right = '-260px';
+                overlay.style.display = 'none';
+            } else {
+                sideMenu.style.right = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        const URL_FOTO_QRIS_KAMU = ""; 
+
+        let currentProduct = null; 
+        let currentTier = 'basic'; 
+        let currentDuration = 'monthly'; 
+
+        let selectedVersionValue = "";
+        let selectedCoreValue = "PaperMC";
+        let isQrisSelected = false;
+
+        let selectedDomainNameCache = "";
+        let selectedDomainPriceCache = 0;
+        let activeOrderObj = { packageName: "", basePrice: 0, addonPrice: 0, discountPrice: 0, finalPrice: 0 };
+        
+        let countdownInterval = null;
+
+        const mcHardware = { basic: "AMD GENOA", premium: "AMD Ryzen 7 7700X", ultra: "AMD Ryzen 9 9950X" };
+        const privateHardware = { basic: "DEDICATED CORE - RYZEN AMD GENOA PRO", premium: "DEDICATED CORE - RYZEN 7 SECLUSION", ultra: "DEDICATED CORE - RYZEN 9 MONSTER POWER" };
+        const botHardware = { basic: "AMD GENOA Ecosystem", premium: "AMD Ryzen 7 7700X Speed", ultra: "AMD Ryzen 9 9950X Limitless" };
+
+        const versiJavaLengkap = ["1.21", "1.20.4", "1.20.1", "1.19.4", "1.18.2", "1.17.1", "1.16.5", "1.15.2", "1.14.4", "1.12.2"];
+        const versiBedrockLengkap = ["1.21.0", "1.20.80", "1.20.50", "1.20.10", "1.19.80", "1.19.20", "1.18.30", "1.17.40", "1.16.220", "1.16.200"];
+
+        const daftarHargaDomainTLD = {
+            ".my.id": { normal: 15000, promo: 7000, badge: "MURAH", color: "hijau" },
+            ".biz.id": { normal: 15000, promo: 7000, badge: "", color: "" },
+            ".web.id": { normal: 15000, promo: 7000, badge: "", color: "" },
+            ".id": { normal: 250000, promo: 175000, badge: "PREMIUM", color: "" },
+            ".co.id": { normal: 300000, promo: 205000, badge: "BISNIS", color: "merah" },
+            ".com": { normal: 160000, promo: 150000, badge: "POPULER", color: "merah" },
+            ".net": { normal: 170000, promo: 160000, badge: "", color: "" },
+            ".org": { normal: 175000, promo: 165000, badge: "", color: "" },
+            ".info": { normal: 60000, promo: 50000, badge: "", color: "" },
+            ".online": { normal: 30000, promo: 28500, badge: "DISCOUNT", color: "hijau" },
+            ".site": { normal: 30000, promo: 28500, badge: "", color: "" },
+            ".xyz": { normal: 30000, promo: 28500, badge: "", color: "" },
+            ".io": { normal: 850000, promo: 750000, badge: "STARTUP", color: "merah" },
+            ".tech": { normal: 75000, promo: 71250, badge: "PROMO", color: "hijau" },
+            ".shop": { normal: 45000, promo: 42750, badge: "SALE", color: "merah" },
+            ".store": { normal: 80000, promo: 76000, badge: "", color: "" },
+            ".dev": { normal: 250000, promo: 200000, badge: "DEV", color: "hijau" },
+            ".app": { normal: 300000, promo: 250000, badge: "", color: "" },
+            ".me": { normal: 120000, promo: 95000, badge: "PERSONAL", color: "hijau" },
+            ".vip": { normal: 60000, promo: 57000, badge: "", color: "" },
+            ".pro": { normal: 85000, promo: 80750, badge: "", color: "" }
+        };
+
+        function showCustomAlert(message, title="Pemberitahuan", iconColor="#ff3e3e", iconClass="fa-exclamation-circle") {
+            document.getElementById('custom-alert-title').innerText = title;
+            document.getElementById('custom-alert-message').innerHTML = message;
+            
+            const iconEl = document.getElementById('custom-alert-icon');
+            iconEl.className = `fas ${iconClass}`;
+            iconEl.style.color = iconColor;
+            
+            openModal('modal-custom-alert');
+        }
+
+        function resetToHomeGateway() {
+            document.getElementById('page-product-selection').style.display = 'none';
+            document.getElementById('page-product-detail').style.display = 'none';
+            document.getElementById('page-gateway').style.display = 'flex';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showProductSelectionPage() {
+            document.getElementById('page-gateway').style.display = 'none';
+            document.getElementById('page-product-detail').style.display = 'none';
+            document.getElementById('page-product-selection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openProductDetail(prodCode) {
+            currentProduct = prodCode;
+            document.getElementById('page-product-selection').style.display = 'none';
+            document.getElementById('page-product-detail').style.display = 'block';
+
+            const titleEl = document.getElementById('detail-title');
+            const durationCont = document.getElementById('duration-tabs-container');
+            const tabsCont = document.getElementById('sub-tabs-container');
+
+            durationCont.style.display = 'none';
+            tabsCont.style.display = 'flex';
+
+            if(prodCode === 'mc') {
+                titleEl.innerText = "Minecraft Server Plans";
+                durationCont.style.display = 'flex';
+                currentTier = 'basic';
+                currentDuration = 'monthly';
+                tabsCont.innerHTML = `
+                    <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
+                    <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
+                    <button id="st-ultra" class="sub-tab-btn" onclick="switchSubTier('ultra')">ULTRA</button>
+                `;
+            } else if(prodCode === 'private') {
+                titleEl.innerText = "Private Server Minecraft (VPS Dedicated)";
+                durationCont.style.display = 'flex';
+                currentTier = 'basic';
+                currentDuration = 'monthly';
+                tabsCont.innerHTML = `
+                    <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
+                    <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
+                    <button id="st-ultra" class="sub-tab-btn" onclick="switchSubTier('ultra')">ULTRA</button>
+                `;
+            } else if(prodCode === 'bot') {
+                titleEl.innerText = "PANEL BOT Packages";
+                durationCont.style.display = 'flex';
+                currentTier = 'basic';
+                currentDuration = 'monthly';
+                tabsCont.innerHTML = `
+                    <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
+                    <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
+                    <button id="st-ultra" class="sub-tab-btn" onclick="switchSubTier('ultra')">ULTRA</button>
+                `;
+            } else if(prodCode === 'domain') {
+                titleEl.innerText = "Domain Registration Engine";
+                tabsCont.style.display = 'none';
+            } else if(prodCode === 'vps') {
+                titleEl.innerText = "VPS Infrastructure Node";
+                currentTier = 'legal';
+                tabsCont.innerHTML = `
+                    <button id="st-legal" class="sub-tab-btn active" onclick="switchSubTier('legal')">LEGAL VPS</button>
+                    <button id="st-ovh" class="sub-tab-btn" onclick="switchSubTier('ovh')">VPS BY OVH</button>
+                    <button id="st-do" class="sub-tab-btn" onclick="switchSubTier('do')">DIGITAL OCEAN</button>
+                `;
+            }
+
+            document.querySelectorAll('.duration-btn').forEach(btn => btn.classList.remove('active'));
+            if(document.getElementById('dt-monthly')) document.getElementById('dt-monthly').classList.add('active');
+
+            renderActiveProductData();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function backToProductSelection() {
+            document.getElementById('page-product-detail').style.display = 'none';
+            document.getElementById('page-product-selection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchSubTier(tierName) {
+            currentTier = tierName;
+            document.querySelectorAll('.sub-tab-btn').forEach(btn => btn.classList.remove('active'));
+            if(document.getElementById(`st-${tierName}`)) {
+                document.getElementById(`st-${tierName}`).classList.add('active');
+            }
+            renderActiveProductData();
+        }
+
+        function switchDuration(durationName) {
+            currentDuration = durationName;
+            document.querySelectorAll('.duration-btn').forEach(btn => btn.classList.remove('active'));
+            if(document.getElementById(`dt-${durationName}`)) {
+                document.getElementById(`dt-${durationName}`).classList.add('active');
+            }
+            renderActiveProductData();
+        }
+
+        function formatIDR(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+        }
+
+        function getDurationText() {
+            if (currentDuration === 'weekly') return '/minggu';
+            if (currentDuration === 'yearly') return '/tahun';
+            return '/bulan';
+        }
+
+        function renderActiveProductData() {
+            const hwBadge = document.getElementById('hardware-badge');
+            hwBadge.style.display = 'table';
+
+            if (currentProduct === 'mc') {
+                hwBadge.innerHTML = `<i class="fas fa-microchip"></i> Processor: ${mcHardware[currentTier]}`;
+                renderMinecraftPlans(false);
+            } else if (currentProduct === 'private') {
+                hwBadge.innerHTML = `<i class="fas fa-user-shield"></i> Dedicated Hardware: ${privateHardware[currentTier]}`;
+                renderMinecraftPlans(true); 
+            } else if (currentProduct === 'bot') {
+                hwBadge.innerHTML = `<i class="fas fa-microchip"></i> Engine Node: ${botHardware[currentTier]}`;
+                renderWhatsAppPlans();
+            } else if (currentProduct === 'domain') {
+                hwBadge.style.display = 'none';
+                renderDomainCheckerLayout();
+            } else if (currentProduct === 'vps') {
+                if(currentTier === 'legal') hwBadge.innerHTML = `<i class="fas fa-shield-alt"></i> Enterprise Legal VPS (Bisa Diperpanjang)`;
+                if(currentTier === 'ovh') hwBadge.innerHTML = `<i class="fas fa-cloud"></i> OVH Cloud High Performance Infrastructure (No Perpanjang)`;
+                if(currentTier === 'do') hwBadge.innerHTML = `<i class="fas fa-server"></i> Digital Ocean & Multi-Cloud Products`;
+                renderVpsSubTierPlans();
+            }
+        }
+
+        // =========================================================================================
+        // BAGIAN YANG DIEDIT: Memastikan memori mentok 64GB, disk 128GB, dan hitungan spesifiknya
+        // =========================================================================================
+        function renderMinecraftPlans(isPrivateServer) {
+            const container = document.getElementById('items-container');
+            container.innerHTML = "";
+
+            // Harga diset per 1 GB RAM untuk menghasilkan skema harga linier
+            const mcConfig = {
+                basic: { pricePerGB: 5000 },
+                premium: { pricePerGB: 7500 }, 
+                ultra: { pricePerGB: 10000 }
+            };
+
+            const privateConfig = {
+                basic: { pricePerGB: 7500 },  // Ekivalen paket lama (4GB = 30k)
+                premium: { pricePerGB: 10000 }, 
+                ultra: { pricePerGB: 15000 }
+            };
+
+            const activeConfig = isPrivateServer ? privateConfig[currentTier] : mcConfig[currentTier];
+            const maxRAM = 64; // Pokoknya memori mentok 64GB seperti request
+
+            // Loop dari 1GB hingga 64GB bertahap (naik 1 GB, tidak dikali lipat)
+            for (let ram = 1; ram <= maxRAM; ram++) {
+                let disk = ram * 2; // Setiap paket disknya itu 2x dari RAM
+                let maxSlots = ram * 5; // Slot player naik 5 disetiap naik 1GB RAM
+                
+                let cpuDisplay = '';
+                if (currentTier === 'basic') cpuDisplay = `${ram * 50}%`;
+                else if (currentTier === 'premium') cpuDisplay = `${ram * 100}%`;
+                else cpuDisplay = `&infin; (Unlimited)`;
+                
+                let baseHarga = activeConfig.pricePerGB * ram;
+                if (currentDuration === 'weekly') baseHarga = Math.round(baseHarga * 0.25);
+                else if (currentDuration === 'yearly') baseHarga = baseHarga * 10;
+
+                // Penamaan langsung menampilkan jumlah GB untuk kemudahan identifikasi
+                let cardTitle = isPrivateServer ? `PRIVATE ${currentTier.toUpperCase()} ${ram}GB` : `MC ${currentTier.toUpperCase()} ${ram}GB`;
+
+                container.innerHTML += `
+                    <div class="item-card">
+                        <div>
+                            <h4>${cardTitle}</h4>
+                            <div class="price-tag">${formatIDR(baseHarga)}<span>${getDurationText()}</span></div>
+                            
+                            <div class="item-specs-highlight">
+                                <div><i class="fas fa-shield-alt"></i> Anti Down 98% & Anti DDoS</div>
+                                <div><i class="fas fa-sync"></i> Garansi 15 Hari 1× Replace</div>
+                            </div>
+
+                            <ul>
+                                <li><i class="fas fa-memory"></i> ${isPrivateServer ? 'Dedicated RAM' : 'RAM Server'}: <strong>${ram} GB</strong></li>
+                                <li><i class="fas fa-hdd"></i> Storage NVMe: <strong>${disk} GB</strong></li>
+                                <li><i class="fas fa-microchip"></i> Alokasi CPU: <strong>${cpuDisplay}</strong></li>
+                                <li><i class="fas fa-users"></i> Max Slot Player: <strong>${maxSlots} Slot</strong></li>
+                                <li><i class="fas fa-map-marker-alt"></i> Region: <strong>Singapura</strong></li>
+                            </ul>
+                        </div>
+                        <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga})">Sewa Unit</button>
+                    </div>
+                `;
+            }
+        }
+        // =========================================================================================
+
+        function renderWhatsAppPlans() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = "";
+            
+            let baseHarga = 15000;
+            if (currentTier === 'premium') baseHarga = 20000;
+            if (currentTier === 'ultra') baseHarga = 30000;
+            
+            if (currentDuration === 'weekly') baseHarga = Math.round(baseHarga * 0.3);
+            if (currentDuration === 'yearly') baseHarga = baseHarga * 10;
+
+            let cardTitle = `PANEL BOT ${currentTier.toUpperCase()} (UNLIMITED)`;
+            
+            container.innerHTML += `
+                <div class="item-card" style="border-color: #ff3e3e;">
+                    <div>
+                        <h4>${cardTitle}</h4>
+                        <div class="price-tag">${formatIDR(baseHarga)}<span>${getDurationText()}</span></div>
+                        
+                        <div class="item-specs-highlight" style="color:#ff3e3e; border-color: rgba(255, 62, 62, 0.4); background: rgba(255, 62, 62, 0.05);">
+                            <div><i class="fas fa-bolt"></i> Website & Sistem Otomatis On 24 Jam Nonstop</div>
+                        </div>
+
+                        <ul>
+                            <li><i class="fas fa-memory"></i> RAM Memory: <strong>Unlimited (&infin;)</strong></li>
+                            <li><i class="fas fa-microchip"></i> Alokasi CPU: <strong>Unlimited (&infin;)</strong></li>
+                            <li><i class="fas fa-hdd"></i> Storage Disk: <strong>Unlimited (&infin;)</strong></li>
+                            <li><i class="fas fa-map-marker-alt"></i> Region Server: <strong>Singapura</strong></li>
+                        </ul>
+                    </div>
+                    <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga})">Order Panel Bot</button>
+                </div>
+            `;
+        }
+
+        function renderVpsSubTierPlans() {
+            const container = document.getElementById('items-container');
+            container.innerHTML = "";
+
+            if(currentTier === 'legal') {
+                const legalData = [
+                    { name: "LEGAL VPS INDO Tier 1", price: 135000, ssd: "75 GB", core: "4 Core", ram: "6 GB" },
+                    { name: "LEGAL VPS INDO Tier 2", price: 255000, ssd: "150 GB", core: "6 Core", ram: "16 GB" },
+                    { name: "LEGAL VPS INDO Tier 3", price: 340000, ssd: "200 GB", core: "8 Core", ram: "24 GB" },
+                    { name: "LEGAL VPS INDO Tier 4", price: 620000, ssd: "250 GB", core: "12 Core", ram: "48 GB" }
+                ];
+
+                legalData.forEach(item => {
+                    container.innerHTML += `
+                        <div class="item-card">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <div class="price-tag">${formatIDR(item.price)}<span>/bulan</span></div>
+                                <p style="font-size:0.8rem; color:#10b981; margin-bottom:12px;"><i class="fas fa-sync"></i> Garansi Resmi & Bisa Diperpanjang</p>
+                                <ul>
+                                    <li><i class="fas fa-hdd"></i> SSD Space: <strong>${item.ssd}</strong></li>
+                                    <li><i class="fas fa-microchip"></i> CPU Power: <strong>${item.core}</strong></li>
+                                    <li><i class="fas fa-memory"></i> RAM Memory: <strong>${item.ram}</strong></li>
+                                    <li><i class="fas fa-server"></i> KVM Virtualization</li>
+                                    <li><i class="fas fa-infinity"></i> Unlimited Bandwidth</li>
+                                    <li><i class="fas fa-map-marker-alt"></i> Region Indonesia</li>
+                                </ul>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa VPS</button>
+                        </div>
+                    `;
+                });
+
+            } else if(currentTier === 'ovh') {
+                container.innerHTML += `<div class="group-separator"><i class="fab fa-linux"></i> Cloud VPS Linux (No Perpanjang)</div>`;
+                const ovhLinux = [
+                    { name: "OVH LINUX 4GB", price: 55000, ram: "4 GB", cpu: "2 vCPU" },
+                    { name: "OVH LINUX 8GB", price: 85000, ram: "8 GB", cpu: "4 vCPU" },
+                    { name: "OVH LINUX 16GB", price: 125000, ram: "16 GB", cpu: "4 vCPU" },
+                    { name: "OVH LINUX 32GB", price: 155000, ram: "32 GB", cpu: "8 vCPU" }
+                ];
+                ovhLinux.forEach(item => {
+                    container.innerHTML += `
+                        <div class="item-card">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <div class="price-tag">${formatIDR(item.price)}<span>/20 hari</span></div>
+                                <p style="font-size:0.8rem; color:#ff9800; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Garansi: 20 Hari</p>
+                                <ul>
+                                    <li><i class="fas fa-memory"></i> RAM: <strong>${item.ram}</strong></li>
+                                    <li><i class="fas fa-microchip"></i> CPU: <strong>${item.cpu}</strong></li>
+                                    <li><i class="fas fa-compact-disc"></i> OS: Ubuntu, Debian, AlmaLinux, RockyLinux, CentOS</li>
+                                </ul>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa Linux</button>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML += `<div class="group-separator"><i class="fab fa-windows"></i> Cloud RDP Windows (No Perpanjang)</div>`;
+                const ovhWindows = [
+                    { name: "OVH RDP 4GB", price: 55000, ram: "4 GB", cpu: "2 vCPU" },
+                    { name: "OVH RDP 8GB", price: 85000, ram: "8 GB", cpu: "4 vCPU" },
+                    { name: "OVH RDP 16GB", price: 125000, ram: "16 GB", cpu: "4 vCPU" },
+                    { name: "OVH RDP 32GB", price: 155000, ram: "32 GB", cpu: "8 vCPU" }
+                ];
+                ovhWindows.forEach(item => {
+                    container.innerHTML += `
+                        <div class="item-card">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <div class="price-tag">${formatIDR(item.price)}<span>/20 hari</span></div>
+                                <p style="font-size:0.8rem; color:#ff9800; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Garansi: 20 Hari</p>
+                                <ul>
+                                    <li><i class="fas fa-memory"></i> RAM: <strong>${item.ram}</strong></li>
+                                    <li><i class="fas fa-microchip"></i> CPU: <strong>${item.cpu}</strong></li>
+                                    <li><i class="fas fa-desktop"></i> OS: Windows 2025, 2022, 2019, 2016</li>
+                                </ul>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa RDP</button>
+                        </div>
+                    `;
+                });
+
+            } else if(currentTier === 'do') {
+                container.innerHTML += `<div class="group-separator"><i class="fas fa-cloud-meatball"></i> Cloud Account & Paid Packages</div>`;
+                const cloudProducts = [
+                    { name: "OVH Cloud Paid Accounts (34 vCPUs - $210 Credit)", price: 180000, desc: "Akses cloud premium siap pakai node OVH" },
+                    { name: "Digital Ocean 10 Droplets Cloud/AMD — VCC", price: 80000, desc: "Limit pembuatan maksimal 10 VM/Droplets AMD" },
+                    { name: "Digital Ocean 3 Droplets Cloud/AMD — VCC", price: 65000, desc: "Limit pembuatan maksimal 3 VM/Droplets AMD" },
+                    { name: "AWS Amazon 5 vCPU Account", price: 40000, desc: "Akun cloud AWS dengan alokasi maksimum vCPU 5" }
+                ];
+                cloudProducts.forEach(item => {
+                    container.innerHTML += `
+                        <div class="item-card">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <div class="price-tag">${formatIDR(item.price)}</div>
+                                <p style="font-size:0.85rem; color:#a0a5b1; margin-bottom:10px;">${item.desc}</p>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Beli Akun</button>
+                        </div>
+                    `;
+                });
+
+                const doTiers = [
+                    { title: "Digital Ocean (Low Tier)", garansi: "7 Days 1x Replace", ram4: 17000, ram8: 23000 },
+                    { title: "Digital Ocean (High Tier)", garansi: "10 Days 2x Replace", ram4: 30000, ram8: 35000 },
+                    { title: "Digital Ocean (Ultra Tier)", garansi: "15 Days 2x Replace", ram4: 35000, ram8: 40000 }
+                ];
+
+                doTiers.forEach(tier => {
+                    container.innerHTML += `<div class="group-separator"><i class="fas fa-boxes"></i> ${tier.title}</div>`;
+                    
+                    container.innerHTML += `
+                        <div class="item-card">
+                            <div>
+                                <h4>${tier.title} - RAM 4GB</h4>
+                                <div class="price-tag">${formatIDR(tier.ram4)}</div>
+                                <p style="font-size:0.8rem; color:#4caf50; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Garansi: ${tier.garansi}</p>
+                                <ul>
+                                    <li><i class="fas fa-memory"></i> RAM Memory: <strong>4 GB</strong></li>
+                                    <li><i class="fas fa-microchip"></i> Core CPU: <strong>2 Core</strong></li>
+                                    <li><i class="fas fa-cubes"></i> OS: Linux & Windows Complete</li>
+                                </ul>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 4GB', ${tier.ram4})">Sewa Node</button>
+                        </div>
+                        <div class="item-card">
+                            <div>
+                                <h4>${tier.title} - RAM 8GB</h4>
+                                <div class="price-tag">${formatIDR(tier.ram8)}</div>
+                                <p style="font-size:0.8rem; color:#4caf50; margin-bottom:12px;"><i class="fas fa-shield-alt"></i> Garansi: ${tier.garansi}</p>
+                                <ul>
+                                    <li><i class="fas fa-memory"></i> RAM Memory: <strong>8 GB</strong></li>
+                                    <li><i class="fas fa-microchip"></i> Core CPU: <strong>4 Core</strong></li>
+                                    <li><i class="fas fa-cubes"></i> OS: Linux & Windows Complete</li>
+                                </ul>
+                            </div>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 8GB', ${tier.ram8})">Sewa Node</button>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        /* ==========================================================================
+           DOMAIN CHECKER DENGAN DNS OVER HTTPS (GOOGLE API)
+           ========================================================================== */
+        function renderDomainCheckerLayout() {
+            const container = document.getElementById('items-container');
+            
+            let tldCardsHTML = "";
+            for(let tld in daftarHargaDomainTLD) {
+                let data = daftarHargaDomainTLD[tld];
+                let badgeHTML = data.badge ? `<div class="badge ${data.color}">${data.badge}</div>` : "";
+                tldCardsHTML += `
+                    <div class="tld-card">
+                        ${badgeHTML}
+                        <h4>${tld}</h4>
+                        <div class="price-strike">${formatIDR(data.normal)}</div>
+                        <div class="price-promo">${formatIDR(data.promo)}</div>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="domain-premium-wrapper">
+                    <div class="domain-hero-section">
+                        <h3>Cari Domain <span>Impianmu</span></h3>
+                        <p>Daftarkan domain dengan harga super terjangkau.</p>
+                        
+                        <div class="domain-search-box">
+                            <input type="text" id="domain-search-input" placeholder="Masukan Nama Domain..." onkeypress="if(event.key === 'Enter') executeDomainSearch()">
+                            <button onclick="executeDomainSearch()"><i class="fas fa-search"></i> Cari</button>
+                        </div>
+
+                        <div id="loader-spinner" class="loader-spinner">
+                            <i class="fas fa-circle-notch fa-spin"></i>
+                            <div class="loader-text">Mengecek DNS Global (Real-time)...</div>
+                        </div>
+
+                        <div id="domain-search-results" class="domain-results-container" style="margin-top: 20px; margin-bottom: 40px;"></div>
+                        
+                        <div class="tld-showcase">
+                            ${tldCardsHTML}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function executeDomainSearch() {
+            let rawInput = document.getElementById('domain-search-input').value.trim().toLowerCase();
+            if(!rawInput) {
+                showCustomAlert("Masukkan nama domain yang ingin dicari terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById('domain-search-results').style.display = "none";
+            document.getElementById('loader-spinner').style.display = "block";
+
+            let inputName = rawInput;
+            let detectedTld = "";
+
+            for(let tld in daftarHargaDomainTLD) {
+                if(rawInput.endsWith(tld)) {
+                    detectedTld = tld;
+                    inputName = rawInput.substring(0, rawInput.lastIndexOf(tld)); 
+                    break;
+                }
+            }
+
+            if(inputName.includes('.')) {
+                inputName = inputName.split('.')[0]; 
+            }
+
+            if(!inputName) {
+                document.getElementById('loader-spinner').style.display = "none";
+                showCustomAlert("Format nama domain tidak valid. Harap isi karakter utama sebelum ekstensi.");
+                return;
+            }
+
+            let tldsToDisplay = Object.keys(daftarHargaDomainTLD);
+            if(detectedTld) {
+                tldsToDisplay = tldsToDisplay.filter(t => t !== detectedTld);
+                tldsToDisplay.unshift(detectedTld);
+            }
+
+            const resultsContainer = document.getElementById('domain-search-results');
+            resultsContainer.innerHTML = "";
+
+            const checkPromises = tldsToDisplay.map(async (tld) => {
+                const fullDomain = (inputName + tld).toLowerCase();
+                let isAvailable = true;
+
+                try {
+                    let response = await fetch(`https://dns.google/resolve?name=${fullDomain}&type=NS`);
+                    let data = await response.json();
+                    
+                    if (data.Status === 0 || data.Status === 2) {
+                        isAvailable = false;
+                    }
+                } catch(e) {
+                    // Fallback logic
+                }
+                
+                if (fullDomain === "zavinix.my.id" || fullDomain === "zavinix.web.id") {
+                    isAvailable = false;
+                }
+
+                return { tld, fullDomain, isAvailable };
+            });
+
+            const results = await Promise.all(checkPromises);
+            
+            document.getElementById('loader-spinner').style.display = "none";
+
+            results.forEach(res => {
+                const data = daftarHargaDomainTLD[res.tld];
+                if(res.isAvailable) {
+                    resultsContainer.innerHTML += `
+                        <div class="domain-result-item">
+                            <div class="domain-info">
+                                <div class="d-name">${inputName}<span>${res.tld}</span></div>
+                                <div class="d-status available"><i class="fas fa-check-circle"></i> Tersedia</div>
+                            </div>
+                            <div class="domain-action">
+                                <div class="d-price-strike">${formatIDR(data.normal)}/thn</div>
+                                <div class="d-price">${formatIDR(data.promo)}</div>
+                                <button class="btn-add-cart" onclick="promptDomainRegistration('${res.fullDomain}', ${data.promo})">Daftar Sekarang</button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    resultsContainer.innerHTML += `
+                        <div class="domain-result-item unavailable">
+                            <div class="domain-info">
+                                <div class="d-name strike">${inputName}<span>${res.tld}</span></div>
+                                <div class="d-status taken"><i class="fas fa-times-circle"></i> Sudah Terdaftar</div>
+                            </div>
+                            <div class="domain-action">
+                                <button class="btn-taken" disabled><i class="fas fa-ban"></i> Tidak Tersedia</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+
+            resultsContainer.style.display = "flex";
+        }
+
+        function promptDomainRegistration(fullDomain, price) {
+            selectedDomainNameCache = fullDomain;
+            selectedDomainPriceCache = price;
+
+            activeOrderObj.packageName = `DOMAIN (${fullDomain})`;
+            activeOrderObj.basePrice = price;
+            activeOrderObj.addonPrice = 0;
+            activeOrderObj.discountPrice = 0;
+            activeOrderObj.finalPrice = price;
+
+            document.getElementById('contact-form-title').innerHTML = '<i class="fas fa-globe"></i> Pendaftaran Domain';
+            openModal('modal-contact-form');
+        }
+
+        function submitContactFormIntoInvoice() {
+            const nama = document.getElementById('contact-form-name').value.trim();
+            const wa = document.getElementById('contact-form-wa').value.trim();
+            const email = document.getElementById('contact-form-email').value.trim();
+
+            if(!nama || !wa || !email) {
+                showCustomAlert("Mohon isi seluruh data kontak dengan lengkap sebelum melanjutkan!");
+                return;
+            }
+
+            closeModal('modal-contact-form');
+            proceedToInvoiceStage();
+        }
+
+        function selectCustomCoreOption(coreName) {
+            selectedCoreValue = coreName;
+            document.querySelectorAll('#core-custom-grid .selector-card').forEach(card => card.classList.remove('active'));
+            document.getElementById(`core-card-${coreName}`).classList.add('active');
+            renderDynamicVersionSelector();
+        }
+
+        function renderDynamicVersionSelector() {
+            const gridContainer = document.getElementById('version-custom-grid');
+            gridContainer.innerHTML = "";
+
+            const daftarVersiYangDipakai = (selectedCoreValue === "Bedrock") ? versiBedrockLengkap : versiJavaLengkap;
+            selectedVersionValue = daftarVersiYangDipakai[0]; 
+
+            daftarVersiYangDipakai.forEach((versi, index) => {
+                let activeClass = (index === 0) ? "active" : "";
+                let iconShape = (selectedCoreValue === "Bedrock") ? "fa-tablet-alt" : "fa-cube";
+
+                gridContainer.innerHTML += `
+                    <div class="selector-card ${activeClass}" onclick="assignSelectedVersionValue('${versi}', this)">
+                        <i class="fas ${iconShape}"></i>
+                        <span>v${versi} ${index === 0 ? '(Latest)' : ''}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function assignSelectedVersionValue(versiStr, cardElement) {
+            document.querySelectorAll('#version-custom-grid .selector-card').forEach(c => c.classList.remove('active'));
+            cardElement.classList.add('active');
+            selectedVersionValue = versiStr;
+        }
+
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+            if(id === 'modal-qris-display' && countdownInterval) clearInterval(countdownInterval);
+        }
+
+        function initiateCheckoutFlow(packageName, basePrice) {
+            activeOrderObj.packageName = packageName;
+            activeOrderObj.basePrice = basePrice;
+            activeOrderObj.addonPrice = 0;
+            activeOrderObj.discountPrice = 0;
+            activeOrderObj.finalPrice = basePrice;
+
+            if (currentProduct === 'mc' || currentProduct === 'private') {
+                document.getElementById('addon-ready-to-play').checked = false;
+                selectedCoreValue = "PaperMC"; 
+                document.querySelectorAll('#core-custom-grid .selector-card').forEach(c => c.classList.remove('active'));
+                document.getElementById('core-card-PaperMC').classList.add('active');
+                
+                renderDynamicVersionSelector();
+                updateLiveTotalPrice();
+                openModal('modal-setup');
+            } 
+            else if (currentProduct === 'vps') {
+                document.getElementById('contact-form-title').innerHTML = '<i class="fas fa-server"></i> Data Kepemilikan VPS';
+                openModal('modal-contact-form');
+            } 
+            else {
+                proceedToInvoiceStage();
+            }
+        }
+
+        function updateLiveTotalPrice() {
+            let total = activeOrderObj.basePrice;
+            if (document.getElementById('addon-ready-to-play').checked) {
+                total += 35000;
+                activeOrderObj.addonPrice = 35000;
+            } else {
+                activeOrderObj.addonPrice = 0;
+            }
+            activeOrderObj.finalPrice = total;
+            document.getElementById('setup-live-total').innerText = formatIDR(total);
+        }
+
+        function proceedToInvoiceStage() {
+            closeModal('modal-setup');
+            
+            document.getElementById('inv-name').innerText = activeOrderObj.packageName;
+            
+            if(currentProduct === 'domain' || currentProduct === 'vps') {
+                document.getElementById('inv-duration-row').style.display = "none";
+                document.getElementById('inv-details-row').style.display = "none";
+            } else {
+                document.getElementById('inv-duration-row').style.display = "flex";
+                document.getElementById('inv-duration').innerText = currentDuration.toUpperCase() + ` (${getDurationText()})`;
+                
+                if(currentProduct === 'mc' || currentProduct === 'private') {
+                    document.getElementById('inv-details-row').style.display = "flex";
+                    document.getElementById('inv-engine').innerText = `${selectedCoreValue} (v${selectedVersionValue})`;
+                } else {
+                    document.getElementById('inv-details-row').style.display = "none";
+                }
+            }
+
+            isQrisSelected = false;
+            document.getElementById('qris-selector-element').classList.remove('selected');
+            document.getElementById('btn-submit-payment').disabled = true;
+
+            document.getElementById('promo-input').value = "";
+            document.getElementById('promo-message').style.display = "none";
+            activeOrderObj.discountPrice = 0;
+
+            recalculateInvoiceGrandTotal();
+            openModal('modal-invoice');
+        }
+
+        function toggleSelectQrisMethod() {
+            isQrisSelected = true;
+            document.getElementById('qris-selector-element').classList.add('selected');
+            document.getElementById('btn-submit-payment').disabled = false;
+        }
+
+        function recalculateInvoiceGrandTotal() {
+            let grandTotal = activeOrderObj.basePrice + activeOrderObj.addonPrice - activeOrderObj.discountPrice;
+            if(grandTotal < 0) grandTotal = 0;
+            activeOrderObj.finalPrice = grandTotal;
+            document.getElementById('inv-total-price').innerText = formatIDR(grandTotal);
+        }
+
+        function applyDiscountPromoCode() {
+            const code = document.getElementById('promo-input').value.trim().toUpperCase();
+            const msgEl = document.getElementById('promo-message');
+            msgEl.style.display = "block";
+
+            if(code === "ULTRAGONHEBAT" || code === "ARYA") {
+                activeOrderObj.discountPrice = 5000;
+                msgEl.style.color = "#4caf50";
+                msgEl.innerText = "✓ Kode promo berhasil digunakan! Diskon Rp5.000";
+            } else {
+                activeOrderObj.discountPrice = 0;
+                msgEl.style.color = "#f44336";
+                msgEl.innerText = "✗ Kode promo tidak valid atau kedaluwarsa.";
+            }
+            recalculateInvoiceGrandTotal();
+        }
+
+        function openQrisGatewayPayment() {
+            if(!isQrisSelected) return;
+            closeModal('modal-invoice');
+            
+            const qrisImgElement = document.getElementById('qris-core-img');
+            const alertMsgElement = document.getElementById('qris-no-link-msg');
+
+            if(URL_FOTO_QRIS_KAMU && URL_FOTO_QRIS_KAMU.trim() !== "") {
+                qrisImgElement.src = URL_FOTO_QRIS_KAMU;
+                qrisImgElement.style.display = "block";
+                alertMsgElement.style.display = "none";
+            } else {
+                qrisImgElement.src = "";
+                qrisImgElement.style.display = "none";
+                alertMsgElement.style.display = "block";
+            }
+
+            startQrisTimer(24 * 60 * 60);
+            openModal('modal-qris-display');
+        }
+
+        function startQrisTimer(durationInSeconds) {
+            if(countdownInterval) clearInterval(countdownInterval);
+            let timer = durationInSeconds;
+            const timerEl = document.getElementById('qris-timer');
+
+            function updateTimerDisplay() {
+                let hours = parseInt(timer / 3600, 10);
+                let minutes = parseInt((timer % 3600) / 60, 10);
+                let seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                timerEl.innerText = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(countdownInterval);
+                    timerEl.innerText = "EXPIRED";
+                }
+            }
+            updateTimerDisplay();
+            countdownInterval = setInterval(updateTimerDisplay, 1000);
+        }
+
+        function triggerCheckPaymentStatus() {
+            showCustomAlert(
+                "Sistem sedang mencocokkan mutasi QRIS DANA...<br><br>Status: <span style='color:#ef4444;font-weight:bold;'>BELUM ADA DANA MASUK.</span><br><br>Harap selesaikan pembayaran dan tekan cek kembali.", 
+                "Status Transaksi", 
+                "#3b82f6", 
+                "fa-sync-alt fa-spin"
+            );
+        }
+    </script>
+</body>
+</html>
