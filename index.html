@@ -588,7 +588,7 @@
         .selector-card.active i { color: #ff3e3e; }
         .selector-card.active span { color: #fff; }
 
-        .addon-preconfigured-box { background-color: rgba(255, 62, 62, 0.04); border: 1px dashed rgba(255, 62, 62, 0.3); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .addon-preconfigured-box { background-color: rgba(255, 62, 62, 0.04); border: 1px dashed rgba(255, 62, 62, 0.3); padding: 12px 15px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
         .addon-info h5 { color: #fff; font-size: 0.9rem; }
         .addon-info p { font-size: 0.75rem; color: #a0a5b1; }
         .toggle-container input { accent-color: #ff3e3e; width: 18px; height: 18px; cursor: pointer; }
@@ -598,36 +598,10 @@
         .btn-promo-apply { background-color: #2a2e38; color: #fff; border: 1px solid #3e4454; padding: 0 15px; border-radius: 6px; font-weight: bold; font-size: 0.85rem; }
         .btn-promo-apply:hover { background-color: #ff3e3e; border-color: #ff3e3e; }
 
-        .payment-methods-headline { font-size: 0.85rem; color: #a0a5b1; margin: 20px 0 8px 0; font-weight: bold; }
-        .qris-method-card { background-color: #0f1115; border: 1px solid #2a2e38; padding: 14px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all 0.2s; }
-        .qris-method-card:hover { border-color: #ff3e3e; }
-        .qris-method-card.selected { border-color: #ff3e3e; background-color: rgba(255, 62, 62, 0.05); }
-        .qris-left-side { display: flex; align-items: center; gap: 12px; }
-        .qris-custom-logo-badge { background: linear-gradient(135deg, #002d62, #0056b3); padding: 3px 8px; border-radius: 4px; display: flex; align-items: center; font-style: italic; font-weight: 900; font-size: 0.85rem; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.2); }
-        .qris-custom-logo-badge .q-text { color: #ffffff; }
-        .qris-custom-logo-badge .r-text { color: #ffcc00; }
-        .qris-custom-logo-badge .is-text { color: #ffffff; }
-        .qris-left-side span.qris-txt-lbl { font-size: 0.95rem; font-weight: bold; color: #fff; }
-        .qris-radio-circle { width: 16px; height: 16px; border: 2px solid #707580; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .qris-method-card.selected .qris-radio-circle { border-color: #ff3e3e; }
-        .qris-method-card.selected .qris-radio-circle::after { content: ""; width: 8px; height: 8px; background-color: #ff3e3e; border-radius: 50%; }
-
         .modal-action-buttons { display: flex; gap: 10px; margin-top: 25px; }
         .btn-modal-primary { flex: 1; background-color: #ff3e3e; color: #fff; border: none; padding: 12px; font-weight: bold; border-radius: 6px; text-align: center; }
         .btn-modal-primary:disabled { background-color: #2a2e38; color: #707580; cursor: not-allowed; transform: none; }
         .btn-modal-secondary { background-color: #2a2e38; color: #a0a5b1; border: none; padding: 12px 20px; font-weight: bold; border-radius: 6px; text-align: center; }
-
-        /* ==========================================================================
-           7. QRIS GATEWAY MAIN BOX
-           ========================================================================== */
-        .qris-payment-box { text-align: center; }
-        .qris-image-wrapper { background-color: #1a1d26; border: 2px dashed #2a2e38; padding: 15px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; margin: 15px 0; width: 240px; height: 240px; position: relative; }
-        .qris-image-wrapper img { width: 100%; height: 100%; object-fit: contain; display: none; }
-        .qris-image-wrapper img[src^="http"] { display: block; }
-        .qris-empty-placeholder { color: #707580; font-size: 0.85rem; padding: 10px; }
-        .timer-countdown { background-color: rgba(255, 152, 0, 0.1); border: 1px solid #ff9800; color: #ff9800; padding: 8px; border-radius: 6px; font-weight: bold; font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 1px; }
-        .btn-check-status { width: 100%; background-color: #4caf50; color: #fff; border: none; padding: 14px; font-weight: bold; border-radius: 6px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); }
-        .btn-check-status:hover { background-color: #43a047; }
 
         footer { text-align: center; padding: 40px; background-color: #161920; color: #a0a5b1; border-top: 1px solid #2a2e38; margin-top: 60px; }
     </style>
@@ -639,8 +613,7 @@
         <button class="close-btn" onclick="toggleMenu()">&times;</button>
         <a href="#" onclick="resetToHomeGateway(); toggleMenu();"><i class="fas fa-home" style="width:25px;"></i> Home</a>
         <a href="#" onclick="showProductSelectionPage(); toggleMenu();"><i class="fas fa-box" style="width:25px;"></i> Produk</a>
-        <a href="#"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
-        <a href="#"><i class="fas fa-robot" style="width:25px;"></i> Panel Bot</a>
+        <a href="https://panel.ultragon.biz.id"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
         <a href="#"><i class="fas fa-headset" style="width:25px;"></i> Hubungi Support</a>
     </div>
 
@@ -718,6 +691,7 @@
         <div id="sub-tabs-container" class="sub-tabs"></div>
 
         <div id="duration-tabs-container" class="duration-tabs">
+            <button id="dt-daily" class="duration-btn" onclick="switchDuration('daily')">Harian</button>
             <button id="dt-weekly" class="duration-btn" onclick="switchDuration('weekly')">Mingguan</button>
             <button id="dt-monthly" class="duration-btn active" onclick="switchDuration('monthly')">Bulanan</button>
             <button id="dt-yearly" class="duration-btn" onclick="switchDuration('yearly')">Tahunan</button>
@@ -759,6 +733,16 @@
                 </div>
             </div>
 
+            <div class="addon-preconfigured-box" id="port-addon-box">
+                <div class="addon-info">
+                    <h5>Port Default 19132/25565 (+Rp15.000)</h5>
+                    <p id="port-addon-note">Gunakan port standar agar player mudah masuk.</p>
+                </div>
+                <div class="toggle-container">
+                    <input type="checkbox" id="addon-port-default" onchange="updateLiveTotalPrice()">
+                </div>
+            </div>
+
             <div style="background-color:#0f1115; padding:12px; border-radius:6px; margin-bottom:15px; display:flex; justify-content:space-between;">
                 <span style="color:#a0a5b1; font-size:0.9rem;">Estimasi Biaya:</span>
                 <span id="setup-live-total" style="color:#ff3e3e; font-weight:bold; margin-left:auto;">Rp0</span>
@@ -766,7 +750,7 @@
 
             <div class="modal-action-buttons">
                 <button class="btn-modal-secondary" onclick="closeModal('modal-setup')">Batal</button>
-                <button class="btn-modal-primary" onclick="proceedToInvoiceStage()">Save & Lanjut</button>
+                <button class="btn-modal-primary" onclick="handleSetupSave()">Save & Lanjut</button>
             </div>
         </div>
     </div>
@@ -801,6 +785,7 @@
                 <div id="inv-duration-row" style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Durasi:</span><span id="inv-duration" style="color:#fff;">-</span></div>
                 <div id="inv-details-row" style="display:none; flex-direction:column; border-top:1px dashed #2a2e38; margin-top:5px; padding-top:5px;">
                     <div style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Engine Setup:</span><span id="inv-engine" style="color:#fff;">-</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span style="color:#a0a5b1;">Port Default:</span><span id="inv-port-display" style="color:#fff;">-</span></div>
                 </div>
                 <div style="display:flex; justify-content:space-between; border-top:1px solid #2a2e38; margin-top:8px; padding-top:8px; font-size:1.1rem; font-weight:bold;">
                     <span style="color:#fff;">Total Akhir:</span><span id="inv-total-price" style="color:#ff3e3e;">-</span>
@@ -813,47 +798,9 @@
             </div>
             <div id="promo-message" style="font-size:0.8rem; margin-top:4px; display:none;"></div>
 
-            <div class="payment-methods-headline">Pilih Metode Pembayaran:</div>
-            <div class="qris-method-card" id="qris-selector-element" onclick="toggleSelectQrisMethod()">
-                <div class="qris-left-side">
-                    <div class="qris-custom-logo-badge">
-                        <span class="q-text">Q</span><span class="r-text">R</span><span class="is-text">IS</span>
-                    </div>
-                    <span class="qris-txt-lbl">QRIS Instan Otomatis</span>
-                </div>
-                <div class="qris-radio-circle"></div>
-            </div>
-
             <div class="modal-action-buttons">
                 <button class="btn-modal-secondary" onclick="closeModal('modal-invoice')">Kembali</button>
-                <button class="btn-modal-primary" id="btn-submit-payment" disabled onclick="openQrisGatewayPayment()">Lanjutkan Pembayaran</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-qris-display" class="modal-mask">
-        <div class="modal-window">
-            <h3><i class="fas fa-qrcode"></i> Scan Pembayaran QRIS</h3>
-            
-            <div class="qris-payment-box">
-                <p style="font-size:0.85rem; color:#a0a5b1;">Silakan scan QRIS melalui DANA, OVO, GoPay, LinkAja, atau Mobile Banking.</p>
-                
-                <div class="qris-image-wrapper">
-                    <img id="qris-core-img" src="" alt="QRIS Core Billing">
-                    <div id="qris-no-link-msg" class="qris-empty-placeholder">
-                        <i class="fas fa-exclamation-triangle" style="color:#ff9800; font-size:1.5rem; margin-bottom:10px; display:block;"></i>
-                        FOTO QRIS BELUM DI-SETUP.<br><span style="font-size:0.75rem; color:#a0a5b1;">Tempel tautan fotomu di variabel `URL_FOTO_QRIS_KAMU`.</span>
-                    </div>
-                </div>
-
-                <div style="font-size:0.8rem; color:#a0a5b1; margin-bottom:5px;">Sisa Waktu Bayar (24 Jam Berjalan):</div>
-                <div id="qris-timer" class="timer-countdown">23:59:59</div>
-
-                <button class="btn-check-status" onclick="triggerCheckPaymentStatus()"><i class="fas fa-sync-alt"></i> CHECK STATUS PEMBAYARAN</button>
-            </div>
-
-            <div class="modal-action-buttons">
-                <button class="btn-modal-secondary" style="width:100%;" onclick="closeModal('modal-qris-display')">Tutup Transaksi</button>
+                <button class="btn-modal-primary" id="btn-submit-payment" onclick="redirectToWhatsAppGateway()">Lanjutkan ke WhatsApp</button>
             </div>
         </div>
     </div>
@@ -874,7 +821,6 @@
     </footer>
 
     <script>
-        // Logika Menu Hamburger
         function toggleMenu() {
             const sideMenu = document.getElementById('side-menu');
             const overlay = document.getElementById('menu-overlay');
@@ -887,21 +833,16 @@
             }
         }
 
-        const URL_FOTO_QRIS_KAMU = ""; 
-
         let currentProduct = null; 
         let currentTier = 'basic'; 
         let currentDuration = 'monthly'; 
 
         let selectedVersionValue = "";
         let selectedCoreValue = "PaperMC";
-        let isQrisSelected = false;
 
         let selectedDomainNameCache = "";
         let selectedDomainPriceCache = 0;
-        let activeOrderObj = { packageName: "", basePrice: 0, addonPrice: 0, discountPrice: 0, finalPrice: 0 };
-        
-        let countdownInterval = null;
+        let activeOrderObj = { packageName: "", basePrice: 0, addonPrice: 0, discountPrice: 0, finalPrice: 0, ram: 0, tier: "", customerName: "", customerWa: "", customerEmail: "" };
 
         const mcHardware = { basic: "AMD GENOA", premium: "AMD Ryzen 7 7700X", ultra: "AMD Ryzen 9 9950X" };
         const privateHardware = { basic: "DEDICATED CORE - RYZEN AMD GENOA PRO", premium: "DEDICATED CORE - RYZEN 7 SECLUSION", ultra: "DEDICATED CORE - RYZEN 9 MONSTER POWER" };
@@ -937,11 +878,9 @@
         function showCustomAlert(message, title="Pemberitahuan", iconColor="#ff3e3e", iconClass="fa-exclamation-circle") {
             document.getElementById('custom-alert-title').innerText = title;
             document.getElementById('custom-alert-message').innerHTML = message;
-            
             const iconEl = document.getElementById('custom-alert-icon');
             iconEl.className = `fas ${iconClass}`;
             iconEl.style.color = iconColor;
-            
             openModal('modal-custom-alert');
         }
 
@@ -971,11 +910,15 @@
             durationCont.style.display = 'none';
             tabsCont.style.display = 'flex';
 
+            if(document.getElementById('dt-daily')) document.getElementById('dt-daily').style.display = 'none';
+            if(document.getElementById('dt-weekly')) document.getElementById('dt-weekly').style.display = 'inline-block';
+
             if(prodCode === 'mc') {
                 titleEl.innerText = "Minecraft Server Plans";
                 durationCont.style.display = 'flex';
+                document.getElementById('dt-daily').style.display = 'inline-block'; 
+                document.getElementById('dt-weekly').style.display = 'inline-block'; 
                 currentTier = 'basic';
-                currentDuration = 'monthly';
                 tabsCont.innerHTML = `
                     <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
                     <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
@@ -984,8 +927,9 @@
             } else if(prodCode === 'private') {
                 titleEl.innerText = "Private Server Minecraft (VPS Dedicated)";
                 durationCont.style.display = 'flex';
+                document.getElementById('dt-daily').style.display = 'none'; 
+                document.getElementById('dt-weekly').style.display = 'none'; 
                 currentTier = 'basic';
-                currentDuration = 'monthly';
                 tabsCont.innerHTML = `
                     <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
                     <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
@@ -994,8 +938,9 @@
             } else if(prodCode === 'bot') {
                 titleEl.innerText = "PANEL BOT Packages";
                 durationCont.style.display = 'flex';
+                document.getElementById('dt-daily').style.display = 'none'; 
+                document.getElementById('dt-weekly').style.display = 'inline-block';
                 currentTier = 'basic';
-                currentDuration = 'monthly';
                 tabsCont.innerHTML = `
                     <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
                     <button id="st-premium" class="sub-tab-btn" onclick="switchSubTier('premium')">PREMIUM</button>
@@ -1016,6 +961,7 @@
 
             document.querySelectorAll('.duration-btn').forEach(btn => btn.classList.remove('active'));
             if(document.getElementById('dt-monthly')) document.getElementById('dt-monthly').classList.add('active');
+            currentDuration = 'monthly'; 
 
             renderActiveProductData();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1050,9 +996,19 @@
         }
 
         function getDurationText() {
+            if (currentDuration === 'daily') return '/hari';
             if (currentDuration === 'weekly') return '/minggu';
             if (currentDuration === 'yearly') return '/tahun';
             return '/bulan';
+        }
+
+        function isEligibleForDefaultPort() {
+            const ram = activeOrderObj.ram || 0;
+            const tier = activeOrderObj.tier || 'basic';
+            if (tier === 'basic' && ram >= 8) return true;
+            if (tier === 'premium' && ram >= 5) return true;
+            if (tier === 'ultra' && ram >= 3) return true;
+            return false;
         }
 
         function renderActiveProductData() {
@@ -1079,44 +1035,47 @@
             }
         }
 
-        // =========================================================================================
-        // BAGIAN YANG DIEDIT: Memastikan memori mentok 64GB, disk 128GB, dan hitungan spesifiknya
-        // =========================================================================================
         function renderMinecraftPlans(isPrivateServer) {
             const container = document.getElementById('items-container');
             container.innerHTML = "";
 
-            // Harga diset per 1 GB RAM untuk menghasilkan skema harga linier
-            const mcConfig = {
-                basic: { pricePerGB: 5000 },
-                premium: { pricePerGB: 7500 }, 
-                ultra: { pricePerGB: 10000 }
-            };
+            const mcConfig = { basic: { pricePerGB: 5000 }, premium: { pricePerGB: 7500 }, ultra: { pricePerGB: 10000 } };
+            const privateConfig = { basic: { pricePerGB: 10000 }, premium: { pricePerGB: 15000 }, ultra: { pricePerGB: 20000 } };
+            const maxRAM = 17; 
 
-            const privateConfig = {
-                basic: { pricePerGB: 7500 },  // Ekivalen paket lama (4GB = 30k)
-                premium: { pricePerGB: 10000 }, 
-                ultra: { pricePerGB: 15000 }
-            };
-
-            const activeConfig = isPrivateServer ? privateConfig[currentTier] : mcConfig[currentTier];
-            const maxRAM = 64; // Pokoknya memori mentok 64GB seperti request
-
-            // Loop dari 1GB hingga 64GB bertahap (naik 1 GB, tidak dikali lipat)
             for (let ram = 1; ram <= maxRAM; ram++) {
-                let disk = ram * 2; // Setiap paket disknya itu 2x dari RAM
-                let maxSlots = ram * 5; // Slot player naik 5 disetiap naik 1GB RAM
+                let disk = ram * 2; 
+                let maxSlots = ram * 5; 
                 
                 let cpuDisplay = '';
                 if (currentTier === 'basic') cpuDisplay = `${ram * 50}%`;
                 else if (currentTier === 'premium') cpuDisplay = `${ram * 100}%`;
                 else cpuDisplay = `&infin; (Unlimited)`;
                 
-                let baseHarga = activeConfig.pricePerGB * ram;
-                if (currentDuration === 'weekly') baseHarga = Math.round(baseHarga * 0.25);
-                else if (currentDuration === 'yearly') baseHarga = baseHarga * 10;
+                let baseHarga = 0;
 
-                // Penamaan langsung menampilkan jumlah GB untuk kemudahan identifikasi
+                if (!isPrivateServer) {
+                    if (currentDuration === 'daily') {
+                        if (currentTier === 'basic') baseHarga = 1000 * ram;
+                        else if (currentTier === 'premium') baseHarga = 2000 * ram;
+                        else if (currentTier === 'ultra') baseHarga = 3000 * ram;
+                    } else if (currentDuration === 'weekly') {
+                        if (currentTier === 'basic') baseHarga = 3000 * ram;
+                        else if (currentTier === 'premium') baseHarga = 5000 * ram;
+                        else if (currentTier === 'ultra') baseHarga = 7000 * ram;
+                    } else if (currentDuration === 'monthly') {
+                        baseHarga = mcConfig[currentTier].pricePerGB * ram;
+                    } else if (currentDuration === 'yearly') {
+                        baseHarga = (mcConfig[currentTier].pricePerGB * ram) * 10;
+                    }
+                } else {
+                    if (currentDuration === 'monthly') {
+                        baseHarga = privateConfig[currentTier].pricePerGB * ram;
+                    } else if (currentDuration === 'yearly') {
+                        baseHarga = (privateConfig[currentTier].pricePerGB * ram) * 10;
+                    }
+                }
+
                 let cardTitle = isPrivateServer ? `PRIVATE ${currentTier.toUpperCase()} ${ram}GB` : `MC ${currentTier.toUpperCase()} ${ram}GB`;
 
                 container.innerHTML += `
@@ -1138,34 +1097,65 @@
                                 <li><i class="fas fa-map-marker-alt"></i> Region: <strong>Singapura</strong></li>
                             </ul>
                         </div>
-                        <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga})">Sewa Unit</button>
+                        <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga}, ${ram})">Sewa Unit</button>
                     </div>
                 `;
             }
         }
-        // =========================================================================================
 
         function renderWhatsAppPlans() {
             const container = document.getElementById('items-container');
             container.innerHTML = "";
             
-            let baseHarga = 15000;
-            if (currentTier === 'premium') baseHarga = 20000;
-            if (currentTier === 'ultra') baseHarga = 30000;
-            
-            if (currentDuration === 'weekly') baseHarga = Math.round(baseHarga * 0.3);
-            if (currentDuration === 'yearly') baseHarga = baseHarga * 10;
+            let pricePerGB = 500;
+            if (currentTier === 'premium') pricePerGB = 1000;
+            if (currentTier === 'ultra') pricePerGB = 1500;
 
-            let cardTitle = `PANEL BOT ${currentTier.toUpperCase()} (UNLIMITED)`;
+            for (let ram = 1; ram <= 10; ram++) {
+                let baseHarga = pricePerGB * ram;
+                if (currentDuration === 'weekly') baseHarga = Math.max(Math.round(baseHarga * 0.3), 150); 
+                if (currentDuration === 'yearly') baseHarga = baseHarga * 10;
+
+                let cardTitle = `PANEL BOT ${currentTier.toUpperCase()} ${ram}GB`;
+                
+                container.innerHTML += `
+                    <div class="item-card">
+                        <div>
+                            <h4>${cardTitle}</h4>
+                            <div class="price-tag">${formatIDR(baseHarga)}<span>${getDurationText()}</span></div>
+                            
+                            <div class="item-specs-highlight">
+                                <div><i class="fas fa-bolt"></i> Website & Sistem Otomatis On 24 Jam Nonstop</div>
+                            </div>
+
+                            <ul>
+                                <li><i class="fas fa-memory"></i> RAM Memory: <strong>${ram} GB</strong></li>
+                                <li><i class="fas fa-microchip"></i> Alokasi CPU: <strong>${ram * 30}%</strong></li>
+                                <li><i class="fas fa-hdd"></i> Storage Disk: <strong>${ram * 5} GB</strong></li>
+                                <li><i class="fas fa-map-marker-alt"></i> Region Server: <strong>Singapura</strong></li>
+                            </ul>
+                        </div>
+                        <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga}, ${ram})">Order Panel Bot</button>
+                    </div>
+                `;
+            }
+
+            let unlimitedBaseHarga = 15000;
+            if (currentTier === 'premium') unlimitedBaseHarga = 20000;
+            if (currentTier === 'ultra') unlimitedBaseHarga = 30000;
+            if (currentDuration === 'weekly') unlimitedBaseHarga = Math.round(unlimitedBaseHarga * 0.3);
+            if (currentDuration === 'yearly') unlimitedBaseHarga = unlimitedBaseHarga * 10;
+
+            let cardTitleUnlimited = `PANEL BOT ${currentTier.toUpperCase()} (UNLIMITED)`;
             
             container.innerHTML += `
                 <div class="item-card" style="border-color: #ff3e3e;">
                     <div>
-                        <h4>${cardTitle}</h4>
-                        <div class="price-tag">${formatIDR(baseHarga)}<span>${getDurationText()}</span></div>
+                        <h4>${cardTitleUnlimited}</h4>
+                        <div class="price-tag">${formatIDR(unlimitedBaseHarga)}<span>${getDurationText()}</span></div>
                         
                         <div class="item-specs-highlight" style="color:#ff3e3e; border-color: rgba(255, 62, 62, 0.4); background: rgba(255, 62, 62, 0.05);">
-                            <div><i class="fas fa-bolt"></i> Website & Sistem Otomatis On 24 Jam Nonstop</div>
+                            <div><i class="fas fa-bolt"></i> Power Tertinggi Sistem Otomatis On 24 Jam Nonstop</div>
                         </div>
 
                         <ul>
@@ -1175,7 +1165,7 @@
                             <li><i class="fas fa-map-marker-alt"></i> Region Server: <strong>Singapura</strong></li>
                         </ul>
                     </div>
-                    <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitle}', ${baseHarga})">Order Panel Bot</button>
+                    <button class="btn-order" onclick="initiateCheckoutFlow('${cardTitleUnlimited}', unlimitedBaseHarga, 999)">Order Panel Bot</button>
                 </div>
             `;
         }
@@ -1186,12 +1176,11 @@
 
             if(currentTier === 'legal') {
                 const legalData = [
-                    { name: "LEGAL VPS INDO Tier 1", price: 135000, ssd: "75 GB", core: "4 Core", ram: "6 GB" },
-                    { name: "LEGAL VPS INDO Tier 2", price: 255000, ssd: "150 GB", core: "6 Core", ram: "16 GB" },
-                    { name: "LEGAL VPS INDO Tier 3", price: 340000, ssd: "200 GB", core: "8 Core", ram: "24 GB" },
-                    { name: "LEGAL VPS INDO Tier 4", price: 620000, ssd: "250 GB", core: "12 Core", ram: "48 GB" }
+                    { name: "LEGAL VPS INDO Tier 1", price: 140000, ssd: "75 GB", core: "4 Core", ram: "6 GB" },
+                    { name: "LEGAL VPS INDO Tier 2", price: 260000, ssd: "150 GB", core: "6 Core", ram: "16 GB" },
+                    { name: "LEGAL VPS INDO Tier 3", price: 345000, ssd: "200 GB", core: "8 Core", ram: "24 GB" },
+                    { name: "LEGAL VPS INDO Tier 4", price: 625000, ssd: "250 GB", core: "12 Core", ram: "48 GB" }
                 ];
-
                 legalData.forEach(item => {
                     container.innerHTML += `
                         <div class="item-card">
@@ -1208,11 +1197,10 @@
                                     <li><i class="fas fa-map-marker-alt"></i> Region Indonesia</li>
                                 </ul>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa VPS</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price}, null)">Sewa VPS</button>
                         </div>
                     `;
                 });
-
             } else if(currentTier === 'ovh') {
                 container.innerHTML += `<div class="group-separator"><i class="fab fa-linux"></i> Cloud VPS Linux (No Perpanjang)</div>`;
                 const ovhLinux = [
@@ -1234,7 +1222,7 @@
                                     <li><i class="fas fa-compact-disc"></i> OS: Ubuntu, Debian, AlmaLinux, RockyLinux, CentOS</li>
                                 </ul>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa Linux</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price}, null)">Sewa Linux</button>
                         </div>
                     `;
                 });
@@ -1259,18 +1247,17 @@
                                     <li><i class="fas fa-desktop"></i> OS: Windows 2025, 2022, 2019, 2016</li>
                                 </ul>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Sewa RDP</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price}, null)">Sewa RDP</button>
                         </div>
                     `;
                 });
-
             } else if(currentTier === 'do') {
                 container.innerHTML += `<div class="group-separator"><i class="fas fa-cloud-meatball"></i> Cloud Account & Paid Packages</div>`;
                 const cloudProducts = [
                     { name: "OVH Cloud Paid Accounts (34 vCPUs - $210 Credit)", price: 180000, desc: "Akses cloud premium siap pakai node OVH" },
-                    { name: "Digital Ocean 10 Droplets Cloud/AMD — VCC", price: 80000, desc: "Limit pembuatan maksimal 10 VM/Droplets AMD" },
-                    { name: "Digital Ocean 3 Droplets Cloud/AMD — VCC", price: 65000, desc: "Limit pembuatan maksimal 3 VM/Droplets AMD" },
-                    { name: "AWS Amazon 5 vCPU Account", price: 40000, desc: "Akun cloud AWS dengan alokasi maksimum vCPU 5" }
+                    { name: "Digital Ocean 10 Droplets Cloud/AMD — VCC", price: 85000, desc: "Limit pembuatan maksimal 10 VM/Droplets AMD" },
+                    { name: "Digital Ocean 3 Droplets Cloud/AMD — VCC", price: 70000, desc: "Limit pembuatan maksimal 3 VM/Droplets AMD" },
+                    { name: "AWS Amazon 5 vCPU Account", price: 45000, desc: "Akun cloud AWS dengan alokasi maksimum vCPU 5" }
                 ];
                 cloudProducts.forEach(item => {
                     container.innerHTML += `
@@ -1280,20 +1267,19 @@
                                 <div class="price-tag">${formatIDR(item.price)}</div>
                                 <p style="font-size:0.85rem; color:#a0a5b1; margin-bottom:10px;">${item.desc}</p>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price})">Beli Akun</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${item.name}', ${item.price}, null)">Beli Akun</button>
                         </div>
                     `;
                 });
 
                 const doTiers = [
-                    { title: "Digital Ocean (Low Tier)", garansi: "7 Days 1x Replace", ram4: 17000, ram8: 23000 },
-                    { title: "Digital Ocean (High Tier)", garansi: "10 Days 2x Replace", ram4: 30000, ram8: 35000 },
-                    { title: "Digital Ocean (Ultra Tier)", garansi: "15 Days 2x Replace", ram4: 35000, ram8: 40000 }
+                    { title: "Digital Ocean (Low Tier)", garansi: "7 Days 1x Replace", ram4: 22000, ram8: 28000 },
+                    { title: "Digital Ocean (High Tier)", garansi: "10 Days 2x Replace", ram4: 35000, ram8: 40000 },
+                    { title: "Digital Ocean (Ultra Tier)", garansi: "15 Days 2x Replace", ram4: 40000, ram8: 45000 }
                 ];
 
                 doTiers.forEach(tier => {
                     container.innerHTML += `<div class="group-separator"><i class="fas fa-boxes"></i> ${tier.title}</div>`;
-                    
                     container.innerHTML += `
                         <div class="item-card">
                             <div>
@@ -1306,7 +1292,7 @@
                                     <li><i class="fas fa-cubes"></i> OS: Linux & Windows Complete</li>
                                 </ul>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 4GB', ${tier.ram4})">Sewa Node</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 4GB', tier.ram4, 4)">Sewa Node</button>
                         </div>
                         <div class="item-card">
                             <div>
@@ -1319,19 +1305,15 @@
                                     <li><i class="fas fa-cubes"></i> OS: Linux & Windows Complete</li>
                                 </ul>
                             </div>
-                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 8GB', ${tier.ram8})">Sewa Node</button>
+                            <button class="btn-order" onclick="initiateCheckoutFlow('${tier.title} - 8GB', tier.ram8, 8)">Sewa Node</button>
                         </div>
                     `;
                 });
             }
         }
 
-        /* ==========================================================================
-           DOMAIN CHECKER DENGAN DNS OVER HTTPS (GOOGLE API)
-           ========================================================================== */
         function renderDomainCheckerLayout() {
             const container = document.getElementById('items-container');
-            
             let tldCardsHTML = "";
             for(let tld in daftarHargaDomainTLD) {
                 let data = daftarHargaDomainTLD[tld];
@@ -1351,22 +1333,16 @@
                     <div class="domain-hero-section">
                         <h3>Cari Domain <span>Impianmu</span></h3>
                         <p>Daftarkan domain dengan harga super terjangkau.</p>
-                        
                         <div class="domain-search-box">
                             <input type="text" id="domain-search-input" placeholder="Masukan Nama Domain..." onkeypress="if(event.key === 'Enter') executeDomainSearch()">
                             <button onclick="executeDomainSearch()"><i class="fas fa-search"></i> Cari</button>
                         </div>
-
                         <div id="loader-spinner" class="loader-spinner">
                             <i class="fas fa-circle-notch fa-spin"></i>
                             <div class="loader-text">Mengecek DNS Global (Real-time)...</div>
                         </div>
-
                         <div id="domain-search-results" class="domain-results-container" style="margin-top: 20px; margin-bottom: 40px;"></div>
-                        
-                        <div class="tld-showcase">
-                            ${tldCardsHTML}
-                        </div>
+                        <div class="tld-showcase">${tldCardsHTML}</div>
                     </div>
                 </div>
             `;
@@ -1419,23 +1395,14 @@
                 try {
                     let response = await fetch(`https://dns.google/resolve?name=${fullDomain}&type=NS`);
                     let data = await response.json();
-                    
-                    if (data.Status === 0 || data.Status === 2) {
-                        isAvailable = false;
-                    }
-                } catch(e) {
-                    // Fallback logic
-                }
+                    if (data.Status === 0 || data.Status === 2) isAvailable = false;
+                } catch(e) {}
                 
-                if (fullDomain === "zavinix.my.id" || fullDomain === "zavinix.web.id") {
-                    isAvailable = false;
-                }
-
+                if (fullDomain === "zavinix.my.id" || fullDomain === "zavinix.web.id") isAvailable = false;
                 return { tld, fullDomain, isAvailable };
             });
 
             const results = await Promise.all(checkPromises);
-            
             document.getElementById('loader-spinner').style.display = "none";
 
             results.forEach(res => {
@@ -1496,6 +1463,10 @@
                 return;
             }
 
+            activeOrderObj.customerName = nama;
+            activeOrderObj.customerWa = wa;
+            activeOrderObj.customerEmail = email;
+
             closeModal('modal-contact-form');
             proceedToInvoiceStage();
         }
@@ -1510,14 +1481,12 @@
         function renderDynamicVersionSelector() {
             const gridContainer = document.getElementById('version-custom-grid');
             gridContainer.innerHTML = "";
-
             const daftarVersiYangDipakai = (selectedCoreValue === "Bedrock") ? versiBedrockLengkap : versiJavaLengkap;
             selectedVersionValue = daftarVersiYangDipakai[0]; 
 
             daftarVersiYangDipakai.forEach((versi, index) => {
                 let activeClass = (index === 0) ? "active" : "";
                 let iconShape = (selectedCoreValue === "Bedrock") ? "fa-tablet-alt" : "fa-cube";
-
                 gridContainer.innerHTML += `
                     <div class="selector-card ${activeClass}" onclick="assignSelectedVersionValue('${versi}', this)">
                         <i class="fas ${iconShape}"></i>
@@ -1539,50 +1508,74 @@
 
         function closeModal(id) {
             document.getElementById(id).style.display = "none";
-            if(id === 'modal-qris-display' && countdownInterval) clearInterval(countdownInterval);
         }
 
-        function initiateCheckoutFlow(packageName, basePrice) {
+        function initiateCheckoutFlow(packageName, basePrice, ramNum = null) {
             activeOrderObj.packageName = packageName;
             activeOrderObj.basePrice = basePrice;
             activeOrderObj.addonPrice = 0;
             activeOrderObj.discountPrice = 0;
             activeOrderObj.finalPrice = basePrice;
+            activeOrderObj.ram = ramNum;
+            activeOrderObj.tier = currentTier;
 
             if (currentProduct === 'mc' || currentProduct === 'private') {
                 document.getElementById('addon-ready-to-play').checked = false;
+                document.getElementById('addon-port-default').checked = false;
                 selectedCoreValue = "PaperMC"; 
                 document.querySelectorAll('#core-custom-grid .selector-card').forEach(c => c.classList.remove('active'));
                 document.getElementById('core-card-PaperMC').classList.add('active');
                 
+                const portBox = document.getElementById('port-addon-box');
+                const portCheck = document.getElementById('addon-port-default');
+                const portNote = document.getElementById('port-addon-note');
+
+                if (isEligibleForDefaultPort()) {
+                    portCheck.disabled = false;
+                    portBox.style.opacity = "1";
+                    portNote.innerText = "Gunakan port standar agar player mudah masuk.";
+                    portNote.style.color = "#a0a5b1";
+                } else {
+                    portCheck.disabled = true;
+                    portBox.style.opacity = "0.5";
+                    portNote.innerText = "Minimal Port Default: Basic 8GB, Premium 5GB, Ultra 3GB.";
+                    portNote.style.color = "#ff3e3e";
+                }
+
                 renderDynamicVersionSelector();
                 updateLiveTotalPrice();
                 openModal('modal-setup');
-            } 
-            else if (currentProduct === 'vps') {
-                document.getElementById('contact-form-title').innerHTML = '<i class="fas fa-server"></i> Data Kepemilikan VPS';
+            } else if (currentProduct === 'vps' || currentProduct === 'bot') {
+                document.getElementById('contact-form-title').innerHTML = currentProduct === 'vps' ? '<i class="fas fa-server"></i> Data Kepemilikan VPS' : '<i class="fas fa-id-card"></i> Lengkapi Data Pemesanan';
                 openModal('modal-contact-form');
-            } 
-            else {
+            } else {
                 proceedToInvoiceStage();
             }
         }
 
+        function handleSetupSave() {
+            closeModal('modal-setup');
+            document.getElementById('contact-form-title').innerHTML = '<i class="fas fa-id-card"></i> Lengkapi Data Pemesanan';
+            openModal('modal-contact-form');
+        }
+
         function updateLiveTotalPrice() {
             let total = activeOrderObj.basePrice;
+            activeOrderObj.addonPrice = 0;
+
             if (document.getElementById('addon-ready-to-play').checked) {
                 total += 35000;
-                activeOrderObj.addonPrice = 35000;
-            } else {
-                activeOrderObj.addonPrice = 0;
+                activeOrderObj.addonPrice += 35000;
+            }
+            if (document.getElementById('addon-port-default') && document.getElementById('addon-port-default').checked) {
+                total += 15000;
+                activeOrderObj.addonPrice += 15000;
             }
             activeOrderObj.finalPrice = total;
             document.getElementById('setup-live-total').innerText = formatIDR(total);
         }
 
         function proceedToInvoiceStage() {
-            closeModal('modal-setup');
-            
             document.getElementById('inv-name').innerText = activeOrderObj.packageName;
             
             if(currentProduct === 'domain' || currentProduct === 'vps') {
@@ -1595,14 +1588,11 @@
                 if(currentProduct === 'mc' || currentProduct === 'private') {
                     document.getElementById('inv-details-row').style.display = "flex";
                     document.getElementById('inv-engine').innerText = `${selectedCoreValue} (v${selectedVersionValue})`;
+                    document.getElementById('inv-port-display').innerText = document.getElementById('addon-port-default').checked ? "YA (19132/25565)" : "TIDAK";
                 } else {
                     document.getElementById('inv-details-row').style.display = "none";
                 }
             }
-
-            isQrisSelected = false;
-            document.getElementById('qris-selector-element').classList.remove('selected');
-            document.getElementById('btn-submit-payment').disabled = true;
 
             document.getElementById('promo-input').value = "";
             document.getElementById('promo-message').style.display = "none";
@@ -1610,12 +1600,6 @@
 
             recalculateInvoiceGrandTotal();
             openModal('modal-invoice');
-        }
-
-        function toggleSelectQrisMethod() {
-            isQrisSelected = true;
-            document.getElementById('qris-selector-element').classList.add('selected');
-            document.getElementById('btn-submit-payment').disabled = false;
         }
 
         function recalculateInvoiceGrandTotal() {
@@ -1642,59 +1626,41 @@
             recalculateInvoiceGrandTotal();
         }
 
-        function openQrisGatewayPayment() {
-            if(!isQrisSelected) return;
-            closeModal('modal-invoice');
+        function redirectToWhatsAppGateway() {
+            let msg = `*HALO ULTRAGON HOST, SAYA INGIN MEMESAN!* \n\n`;
+
+            if (currentProduct === 'mc' || currentProduct === 'private') {
+                const prodLabel = currentProduct === 'mc' ? 'SERVER MINECRAFT' : 'PRIVATE SERVER MINECRAFT';
+                msg += `*PAKET:* ${prodLabel}\n`;
+                msg += `*PAKET SERVER:* ${activeOrderObj.tier.toUpperCase()} ${activeOrderObj.ram}GB\n`;
+                msg += `*JENIS:* ${selectedCoreValue.toUpperCase()}\n`;
+                msg += `*VERSI:* ${selectedVersionValue}\n`;
+                msg += `*SERVER SIAP PAKAI:* ${document.getElementById('addon-ready-to-play').checked ? 'YA' : 'TIDAK'}\n`;
+                msg += `*PORT DEFAULT:* ${document.getElementById('addon-port-default').checked ? 'YA (19132/25565)' : 'TIDAK'}\n`;
+                msg += `*DURASI SEWA:* ${currentDuration.toUpperCase()} ${getDurationText()}\n`;
+            } else if (currentProduct === 'bot') {
+                msg += `*PAKET:* PANEL BOT BILLING\n`;
+                msg += `*NAMA UNIT:* ${activeOrderObj.packageName}\n`;
+                msg += `*DURASI SEWA:* ${currentDuration.toUpperCase()} ${getDurationText()}\n`;
+            } else if (currentProduct === 'vps') {
+                msg += `*PAKET:* VPS SERVER INFRASTRUCTURE\n`;
+                msg += `*NAMA UNIT:* ${activeOrderObj.packageName}\n`;
+            } else if (currentProduct === 'domain') {
+                msg += `*PAKET:* REGISTRASI DOMAIN BARU\n`;
+                msg += `*NAMA DOMAIN:* ${selectedDomainNameCache}\n`;
+            }
+
+            msg += `\n*DATA PEMESAN / KONTAK:* \n`;
+            msg += `- *Nama:* ${activeOrderObj.customerName}\n`;
+            msg += `- *WhatsApp:* ${activeOrderObj.customerWa}\n`;
+            msg += `- *Email:* ${activeOrderObj.customerEmail}\n\n`;
+            msg += `*TOTAL TAGIHAN:* ${formatIDR(activeOrderObj.finalPrice)}\n\n`;
+            msg += `Mohon segera diproses ya Admin, terima kasih!`;
+
+            const targetWaNum = "6283111646400";
+            const finalWaUrl = `https://wa.me/${targetWaNum}?text=${encodeURIComponent(msg)}`;
             
-            const qrisImgElement = document.getElementById('qris-core-img');
-            const alertMsgElement = document.getElementById('qris-no-link-msg');
-
-            if(URL_FOTO_QRIS_KAMU && URL_FOTO_QRIS_KAMU.trim() !== "") {
-                qrisImgElement.src = URL_FOTO_QRIS_KAMU;
-                qrisImgElement.style.display = "block";
-                alertMsgElement.style.display = "none";
-            } else {
-                qrisImgElement.src = "";
-                qrisImgElement.style.display = "none";
-                alertMsgElement.style.display = "block";
-            }
-
-            startQrisTimer(24 * 60 * 60);
-            openModal('modal-qris-display');
-        }
-
-        function startQrisTimer(durationInSeconds) {
-            if(countdownInterval) clearInterval(countdownInterval);
-            let timer = durationInSeconds;
-            const timerEl = document.getElementById('qris-timer');
-
-            function updateTimerDisplay() {
-                let hours = parseInt(timer / 3600, 10);
-                let minutes = parseInt((timer % 3600) / 60, 10);
-                let seconds = parseInt(timer % 60, 10);
-
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
-
-                timerEl.innerText = hours + ":" + minutes + ":" + seconds;
-
-                if (--timer < 0) {
-                    clearInterval(countdownInterval);
-                    timerEl.innerText = "EXPIRED";
-                }
-            }
-            updateTimerDisplay();
-            countdownInterval = setInterval(updateTimerDisplay, 1000);
-        }
-
-        function triggerCheckPaymentStatus() {
-            showCustomAlert(
-                "Sistem sedang mencocokkan mutasi QRIS DANA...<br><br>Status: <span style='color:#ef4444;font-weight:bold;'>BELUM ADA DANA MASUK.</span><br><br>Harap selesaikan pembayaran dan tekan cek kembali.", 
-                "Status Transaksi", 
-                "#3b82f6", 
-                "fa-sync-alt fa-spin"
-            );
+            window.open(finalWaUrl, '_blank');
         }
     </script>
 </body>
