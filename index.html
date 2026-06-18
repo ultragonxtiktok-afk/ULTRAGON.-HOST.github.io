@@ -6,7 +6,7 @@
     
     <meta name="description" content="Hosting server minecraft termurah, menjual vps serta domain dengan harga yang ga bikin dompet menangis!">
     
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link class="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -314,7 +314,7 @@
             color: #ff3e3e;
         }
 
-        /* FADE IMAGE BANNER CSS - DIPERBAIKI */
+        /* FADE IMAGE BANNER CSS - DIPERBAIKI SUPAYA TIDAK KEPOTONG DI DESKTOP */
         .product-banner-fade {
             width: 100%;
             max-width: 900px;
@@ -325,18 +325,19 @@
 
         .product-banner-fade img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;
+            height: auto; /* Mengubah fixed height menjadi auto agar proporsional */
+            max-height: 380px; /* Batasi tinggi maksimal di desktop agar proporsional */
+            object-fit: contain; /* Memastikan seluruh gambar dan teks terlihat utuh tanpa terpotong */
             border-radius: 12px;
-            display: block; /* Mencegah munculnya garis putih tipis di sekitar gambar */
+            display: block; 
             pointer-events: none;
-            /* Efek mask dihapus agar gambar tetap solid dan ujungnya tidak menghilang/hitam */
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* Menambahkan bayangan agar terlihat menyatu dengan rapi */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3); 
         }
 
         @media (max-width: 768px) {
             .product-banner-fade img {
-                height: 160px;
+                height: auto; /* Pastikan di mobile juga mengikuti skala otomatis */
+                max-height: 200px;
             }
         }
 
@@ -639,7 +640,7 @@
         <button class="close-btn" onclick="toggleMenu()">&times;</button>
         <a href="#" onclick="resetToHomeGateway(); toggleMenu();"><i class="fas fa-home" style="width:25px;"></i> Home</a>
         <a href="#" onclick="showProductSelectionPage(); toggleMenu();"><i class="fas fa-box" style="width:25px;"></i> Produk</a>
-        <a href="https://panel.ultragon.biz.id"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
+        <a href="https://panel.ultragon.web.id"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
         <a href="mailto:ultragonhost@gmail.com?subject=Tanya%20UltragonHost"><i class="fas fa-headset" style="width:25px;"></i> Hubungi Support</a>
     </div>
 
@@ -936,7 +937,6 @@
             const durationCont = document.getElementById('duration-tabs-container');
             const tabsCont = document.getElementById('sub-tabs-container');
             
-            // Mengatur Gambar Banner untuk setiap produk
             const bannerWrapper = document.getElementById('product-banner-wrapper');
             const bannerImg = document.getElementById('product-banner-img');
             
@@ -962,7 +962,6 @@
             if(prodCode === 'mc') {
                 titleEl.innerText = "Minecraft Server Plans";
                 durationCont.style.display = 'flex';
-                // MINGGUAN DIHILANGKAN UNTUK MINECRAFT
                 document.getElementById('dt-weekly').style.display = 'none'; 
                 currentTier = 'basic';
                 tabsCont.innerHTML = `
@@ -983,7 +982,8 @@
             } else if(prodCode === 'bot') {
                 titleEl.innerText = "PANEL BOT Packages";
                 durationCont.style.display = 'flex';
-                document.getElementById('dt-weekly').style.display = 'inline-block';
+                // MINGGUAN DIHILANGKAN UNTUK PANEL BOT SESUAI PERMINTAAN
+                document.getElementById('dt-weekly').style.display = 'none'; 
                 currentTier = 'basic';
                 tabsCont.innerHTML = `
                     <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
@@ -1082,7 +1082,6 @@
             const container = document.getElementById('items-container');
             container.innerHTML = "";
 
-            // PENYESUAIAN HARGA SESUAI PERMINTAAN
             const mcConfig = { basic: { pricePerGB: 5000 }, premium: { pricePerGB: 10000 }, ultra: { pricePerGB: 15000 } };
             const privateConfig = { basic: { pricePerGB: 10000 }, premium: { pricePerGB: 20000 }, ultra: { pricePerGB: 30000 } };
             const maxRAM = 17; 
