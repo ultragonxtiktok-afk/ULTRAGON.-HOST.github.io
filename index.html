@@ -314,6 +314,32 @@
             color: #ff3e3e;
         }
 
+        /* FADE IMAGE BANNER CSS - DIPERBAIKI */
+        .product-banner-fade {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 25px auto;
+            display: none;
+            justify-content: center;
+        }
+
+        .product-banner-fade img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            display: block; /* Mencegah munculnya garis putih tipis di sekitar gambar */
+            pointer-events: none;
+            /* Efek mask dihapus agar gambar tetap solid dan ujungnya tidak menghilang/hitam */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3); /* Menambahkan bayangan agar terlihat menyatu dengan rapi */
+        }
+
+        @media (max-width: 768px) {
+            .product-banner-fade img {
+                height: 160px;
+            }
+        }
+
         .sub-tabs {
             display: flex;
             justify-content: center;
@@ -614,7 +640,7 @@
         <a href="#" onclick="resetToHomeGateway(); toggleMenu();"><i class="fas fa-home" style="width:25px;"></i> Home</a>
         <a href="#" onclick="showProductSelectionPage(); toggleMenu();"><i class="fas fa-box" style="width:25px;"></i> Produk</a>
         <a href="https://panel.ultragon.biz.id"><i class="fas fa-server" style="width:25px;"></i> Panel Client</a>
-        <a href="#"><i class="fas fa-headset" style="width:25px;"></i> Hubungi Support</a>
+        <a href="mailto:ultragonhost@gmail.com?subject=Tanya%20UltragonHost"><i class="fas fa-headset" style="width:25px;"></i> Hubungi Support</a>
     </div>
 
     <nav>
@@ -688,10 +714,13 @@
             <button class="btn-back" onclick="backToProductSelection()"><i class="fas fa-arrow-left"></i> Kembali</button>
         </div>
 
+        <div id="product-banner-wrapper" class="product-banner-fade">
+            <img id="product-banner-img" src="" alt="Product Banner">
+        </div>
+
         <div id="sub-tabs-container" class="sub-tabs"></div>
 
         <div id="duration-tabs-container" class="duration-tabs">
-            <button id="dt-daily" class="duration-btn" onclick="switchDuration('daily')">Harian</button>
             <button id="dt-weekly" class="duration-btn" onclick="switchDuration('weekly')">Mingguan</button>
             <button id="dt-monthly" class="duration-btn active" onclick="switchDuration('monthly')">Bulanan</button>
             <button id="dt-yearly" class="duration-btn" onclick="switchDuration('yearly')">Tahunan</button>
@@ -906,18 +935,35 @@
             const titleEl = document.getElementById('detail-title');
             const durationCont = document.getElementById('duration-tabs-container');
             const tabsCont = document.getElementById('sub-tabs-container');
+            
+            // Mengatur Gambar Banner untuk setiap produk
+            const bannerWrapper = document.getElementById('product-banner-wrapper');
+            const bannerImg = document.getElementById('product-banner-img');
+            
+            bannerWrapper.style.display = 'flex';
+            
+            if (prodCode === 'mc' || prodCode === 'private') {
+                bannerImg.src = 'minecraft.png';
+            } else if (prodCode === 'vps') {
+                bannerImg.src = 'vps.png';
+            } else if (prodCode === 'domain') {
+                bannerImg.src = 'domain.png';
+            } else if (prodCode === 'bot') {
+                bannerImg.src = 'panelbot.png';
+            } else {
+                bannerWrapper.style.display = 'none';
+            }
 
             durationCont.style.display = 'none';
             tabsCont.style.display = 'flex';
 
-            if(document.getElementById('dt-daily')) document.getElementById('dt-daily').style.display = 'none';
             if(document.getElementById('dt-weekly')) document.getElementById('dt-weekly').style.display = 'inline-block';
 
             if(prodCode === 'mc') {
                 titleEl.innerText = "Minecraft Server Plans";
                 durationCont.style.display = 'flex';
-                document.getElementById('dt-daily').style.display = 'inline-block'; 
-                document.getElementById('dt-weekly').style.display = 'inline-block'; 
+                // MINGGUAN DIHILANGKAN UNTUK MINECRAFT
+                document.getElementById('dt-weekly').style.display = 'none'; 
                 currentTier = 'basic';
                 tabsCont.innerHTML = `
                     <button id="st-basic" class="sub-tab-btn active" onclick="switchSubTier('basic')">BASIC</button>
@@ -927,7 +973,6 @@
             } else if(prodCode === 'private') {
                 titleEl.innerText = "Private Server Minecraft (VPS Dedicated)";
                 durationCont.style.display = 'flex';
-                document.getElementById('dt-daily').style.display = 'none'; 
                 document.getElementById('dt-weekly').style.display = 'none'; 
                 currentTier = 'basic';
                 tabsCont.innerHTML = `
@@ -938,7 +983,6 @@
             } else if(prodCode === 'bot') {
                 titleEl.innerText = "PANEL BOT Packages";
                 durationCont.style.display = 'flex';
-                document.getElementById('dt-daily').style.display = 'none'; 
                 document.getElementById('dt-weekly').style.display = 'inline-block';
                 currentTier = 'basic';
                 tabsCont.innerHTML = `
@@ -996,7 +1040,6 @@
         }
 
         function getDurationText() {
-            if (currentDuration === 'daily') return '/hari';
             if (currentDuration === 'weekly') return '/minggu';
             if (currentDuration === 'yearly') return '/tahun';
             return '/bulan';
@@ -1039,8 +1082,9 @@
             const container = document.getElementById('items-container');
             container.innerHTML = "";
 
-            const mcConfig = { basic: { pricePerGB: 5000 }, premium: { pricePerGB: 7500 }, ultra: { pricePerGB: 10000 } };
-            const privateConfig = { basic: { pricePerGB: 10000 }, premium: { pricePerGB: 15000 }, ultra: { pricePerGB: 20000 } };
+            // PENYESUAIAN HARGA SESUAI PERMINTAAN
+            const mcConfig = { basic: { pricePerGB: 5000 }, premium: { pricePerGB: 10000 }, ultra: { pricePerGB: 15000 } };
+            const privateConfig = { basic: { pricePerGB: 10000 }, premium: { pricePerGB: 20000 }, ultra: { pricePerGB: 30000 } };
             const maxRAM = 17; 
 
             for (let ram = 1; ram <= maxRAM; ram++) {
@@ -1055,15 +1099,7 @@
                 let baseHarga = 0;
 
                 if (!isPrivateServer) {
-                    if (currentDuration === 'daily') {
-                        if (currentTier === 'basic') baseHarga = 1000 * ram;
-                        else if (currentTier === 'premium') baseHarga = 2000 * ram;
-                        else if (currentTier === 'ultra') baseHarga = 3000 * ram;
-                    } else if (currentDuration === 'weekly') {
-                        if (currentTier === 'basic') baseHarga = 3000 * ram;
-                        else if (currentTier === 'premium') baseHarga = 5000 * ram;
-                        else if (currentTier === 'ultra') baseHarga = 7000 * ram;
-                    } else if (currentDuration === 'monthly') {
+                    if (currentDuration === 'monthly') {
                         baseHarga = mcConfig[currentTier].pricePerGB * ram;
                     } else if (currentDuration === 'yearly') {
                         baseHarga = (mcConfig[currentTier].pricePerGB * ram) * 10;
